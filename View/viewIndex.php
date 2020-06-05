@@ -8,6 +8,7 @@
     <title>Kuharica</title>
     <!-- Bootstrap -->
     <link href="../bootstrap/css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="../bootstrap/css/style.css" rel="stylesheet">
 </head>
 
 <body>

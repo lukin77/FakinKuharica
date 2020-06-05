@@ -92,7 +92,13 @@ require_once ('Controller/ManagerVrsta_jela.php');
         
         <!-- RECEPTI -->
         <div class="col-9">
-            
+            <table>
+                <tr>
+                    <td>
+                        <?php ManagerRecept::IspisRecepta()?>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
   </div>
