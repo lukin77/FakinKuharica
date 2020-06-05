@@ -5,10 +5,12 @@ class Vrsta_jela {
     private $id;
     private $naziv;
     
+    
+
     // UZIMANJE VRIJEDNOSTI ATRIBUTA IZ BAZE
     public function __construct($id=false){
          if($id){
-            $c = DB::connect();
+            $c = kuharica_baza::connect();
             $sql = "SELECT * FROM vrsta_jela WHERE id = $id LIMIT 1";
             $r = $c->query($sql);
             $row = $r->fetch_assoc();
