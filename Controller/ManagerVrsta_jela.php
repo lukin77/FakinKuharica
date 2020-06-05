@@ -23,9 +23,22 @@ class ManagerVrsta_jela{
     }
     
     //ne znan ovo ispisati
-    public static function IspisVrsta_jela($v){
-
-        echo '<p><a href="?a=vrsta_jela&id="'.$v->getId().'>'.$v->getNaziv().'</a></p>';
+    public static function IspisVrsta_jela(){
+        $sql = "SELECT * FROM vrsta_jela";
+        //$r = $this->c->query($sql); Fatal error: Uncaught Error: Using $this when not in object context 
+        $c = kuharica_baza::connect();
+        $r = $c->query($sql);
+        $vrste = array();
+        while($row = $r->fetch_assoc()){
+            $v = new Vrsta_jela();
+            $v->setId($row['id']);
+            $v->setNaziv($row['naziv']);
+            $vrste[] = $v;
+        }
+        foreach ($vrste as $v){
+          echo '<p><a href="?a=vrsta_jela&id="'.$v->getId().'>'.$v->getNaziv().'</a></p>';  
+        }
+        
     }
 }
 
