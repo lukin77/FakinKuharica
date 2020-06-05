@@ -2,8 +2,6 @@
 <html lang="en">
 <?php
 require_once ('Controller/ManagerVrsta_jela.php');
-require_once ('Model/ModelVrsta_jela.php');
-require_once ('Help/database.php');
 
 ?>
 <head>
@@ -94,7 +92,13 @@ require_once ('Help/database.php');
         
         <!-- RECEPTI -->
         <div class="col-9">
-            
+            <table>
+                <tr>
+                    <td>
+                        <?php ManagerRecept::IspisRecepta()?>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
   </div>
