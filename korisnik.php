@@ -15,6 +15,19 @@ if (!isset($_GET['a'])) {
 }
 
 switch ($a) {
+    case 'dodaj' :   header("Location: Korisnik/View/unosRecept.php"); break;
+    
+    case 'unos' :   $recept = new Recept();
+                    $recept->setNaslov($_POST['naslov']);
+                    $recept->setAutor($_SESSION['userID']);
+                    $recept->setSastojci($_POST['sastojci']);
+                    $recept->setTekstRecepta($_POST['tekst_recepta']);
+                    $recept->setVrstaJela($_POST['vrsta_jela']);
+                    $rm->create($recept);
+                    header("Location: korisnik.php");
+                    break;
+                    
+    
     case 'logout': 
                     header("Location: Controller/logout.php");
     

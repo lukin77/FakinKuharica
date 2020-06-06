@@ -27,7 +27,10 @@
                     <a class="nav-link" href="korisnik.php">Početna<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="korisnik?a=logout.php">Odjavi se</a>
+                    <a class="nav-link" href="korisnik.php?a=dodaj">Dodaj novi recept</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="korisnik.php?a=logout">Odjavi se</a>
                 </li>                
             </ul>
         </div>

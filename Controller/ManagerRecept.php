@@ -63,7 +63,7 @@ class ManagerRecept{
         $vk_vrsta_jela = $r->getVrstaJela();
         $sastojci = $r->getSastojci();
         $tekstRecepta = $r->getTekstRecepta();
-        $sql = "INSERT INTO recepti(naslov, vk_autora, vk_vrsta_jela, sastojci, tekst_recepta) VALUES ('$naslo', '$vk_autora','$vk_vrsta_jela', '$sastojci','$teksRecepta')";
+        $sql = "INSERT INTO recepti(naslov, vk_autora, vk_vrsta_jela, sastojci, tekst_recepta) VALUES ('$naslov', '$vk_autora','$vk_vrsta_jela', '$sastojci','$teksRecepta')";
         $this->c->query($sql);
         if($c->errno) {echo $c->error;}
         

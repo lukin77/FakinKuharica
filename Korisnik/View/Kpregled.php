@@ -5,3 +5,9 @@ foreach ($recept as $v) {
 <p><?php echo $v->getTekstRecepta() ?> </p>
 <p><a href="?a=recept&id=<?php echo $v->getId() ?> "> Više.. </a></p>
 <?php } ?>
+
+<?php 
+
+
+
+?>
