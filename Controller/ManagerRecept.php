@@ -29,7 +29,7 @@ class ManagerRecept{
         }
         return $this->vise_vrsta_recepata;
     }
-    
+    //ovo nam ne treba
     public static function IspisRecepta(){
         $sql = "SELECT * FROM recept";
         //$r = $this->c->query($sql);  Fatal error: Uncaught Error: Using $this when not in object context
@@ -55,6 +55,37 @@ class ManagerRecept{
             echo '<p><a href="?a=vrsta_recepta&id="'.$v->getId().'>'.$v->getNaslov().'</a></p>';
             echo '<p>'.$v->getTekstRecepta().'</p>';
         }
+    }
+    
+    public function create(Recept $r){
+        $naslov = $r->getNaslov();
+        $vk_autora = $r->getAutor();
+        $vk_vrsta_jela = $r->getVrstaJela();
+        $sastojci = $r->getSastojci();
+        $tekstRecepta = $r->getTekstRecepta();
+        $sql = "INSERT INTO recepti(naslov, vk_autora, vk_vrsta_jela, sastojci, tekst_recepta) VALUES ('$naslo', '$vk_autora','$vk_vrsta_jela', '$sastojci','$teksRecepta')";
+        $this->c->query($sql);
+        if($c->errno) {echo $c->error;}
+        
+    }
+    
+    public function update(Recept $r){
+        $naslov = $r->getNaslov();
+        $vk_autora = $r->getAutor();
+        $vk_vrsta_jela = $r->getVrstaJela();
+        $sastojci = $r->getSastojci();
+        $tekstRecepta = $r->getTekstRecepta();
+        $id = $r->getId();
+        $sql = "UPDATE recepti SET naslov ='$naslov', vk_autora = '$vk_autora', vk_vrsta_jela='$vk_vrsta_jela', sastojci='$sastojci', tekst_recepta = '$tekstRecepta' WHERE id = '$id' LIMIT 1"; 
+        $this->c->query($sql);
+        if($c->errno) {echo $c->error;}
+        
+    }
+    
+    public function delete($r){
+            $id = $r->getId();
+            $sql = "DELETE FROM recepti WHERE id = $id LIMIT 1";
+            $this->c->query($sql);
     }
 }
 

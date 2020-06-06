@@ -88,7 +88,6 @@
                 <div class="card border-light mb-3" style="max-width: 18rem;">
                 <div class="card-header">Prijava</div>
                     <div class="card-body text-secondary">
-                        <!-- doda metodu za <form> i akciju -->
                         <form method="POST" action="../Controller/login.php">
                                   <div class="form-group">
                                       <label for="exampleInputUsername"><h4 class="text-dark">Korisničko ime</h4></label>

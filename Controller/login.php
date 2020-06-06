@@ -23,9 +23,9 @@ if(!isset($_POST)){
             $sesionID = session_id();
             session_start();
             $row = $r->fetch_assoc();
-            $_SESSION['login']=$username;
-            $_SESSION['tip']= $row['vk_tip_korisnika'];
-            
+            $_SESSION['userID'] = $row['id'];
+            $_SESSION['login'] = $username;
+            var_dump($_SESSION);
             switch($row['vk_tip_korisnika'])
             {
                 //vk_tip_korisnika u nasoj bazi je:
@@ -33,7 +33,7 @@ if(!isset($_POST)){
                 // 2 -> korisnik
                                     //treba dodati adminski dio
                     case 1:  header("Location: ../View/viewAdmin.php"); break;
-                    case 2:  header("Location: ../index.php"); break;
+                    case 2:  header("Location: ../korisnik.php"); break;
                     default: header("Location: ../index.php");
             }
     }
