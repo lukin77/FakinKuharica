@@ -7,25 +7,34 @@ require_once ('Controller/ManagerRecept.php');
 
 $c = kuharica_baza::connect();
 $rm = new ManagerRecept();
-$vjm= new ManagerVrsta_jela();
+$vjm = new ManagerVrsta_jela();
 
-if(!isset($_GET['a'])) { $a = ''; } else { $a = $_GET['a']; }
+if (!isset($_GET['a'])) {
+    $a = '';
+} else {
+    $a = $_GET['a'];
+}
 
- switch ($a){
-     
-     case 'recept': $recept = new Recept($_GET['id']);
+switch ($a) {
+    case 'login': 
+                    header("Location:  View/ViewPrijava.php");
+                    break;
+
+    case 'recept': 
+                    $recept = new Recept($_GET['id']);
                     $recept->povecajBrojPregleda();
                     $template = 'prikazRecept';
-     
-     default : $recept = $rm->getRecept();
-               $template = 'pregled';
-               $vrsta_jela = $vjm->getVrsta_jela();
-               $right_template = 'prikazVrste_jela';
-               break;
-     
-               
- }
+                    $vrsta_jela = $vjm->getVrsta_jela();
+                    $right_template = 'prikazVrste_jela';
+                    break;
 
- include_once './View/prikazPocetne.php';
+    default : 
+                    $recept = $rm->getRecept();
+                    $template = 'pregled';
+                    $vrsta_jela = $vjm->getVrsta_jela();
+                    $right_template = 'prikazVrste_jela';
+                    break;
+}
+include_once './View/prikazPocetne.php';
 ?>
 

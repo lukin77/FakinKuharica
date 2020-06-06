@@ -20,6 +20,7 @@ if(!isset($_POST)){
     if($r && $r->num_rows==1)
     {
             //postavi sesion
+            $sesionID = session_id();
             session_start();
             $row = $r->fetch_assoc();
             $_SESSION['login']=$username;
@@ -30,10 +31,10 @@ if(!isset($_POST)){
                 //vk_tip_korisnika u nasoj bazi je:
                 // 1 -> admin
                 // 2 -> korisnik
-                
+                                    //treba dodati adminski dio
                     case 1:  header("Location: ../View/viewAdmin.php"); break;
-                    case 2:  header("Location: ../View/viewIndex.php"); break;
-                    default: header("Location: ../View/viewIndex.php");
+                    case 2:  header("Location: ../index.php"); break;
+                    default: header("Location: ../index.php");
             }
     }
     else
