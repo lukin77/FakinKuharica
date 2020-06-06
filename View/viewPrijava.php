@@ -30,7 +30,7 @@
                     <a class="nav-link" href="viewPrijava.php">Prijava<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../Pogled/registracija.php">Registracija</a>
+                    <a class="nav-link" href="viewRegistracija.php">Registracija</a>
                 </li>
             </ul>
         </div>

@@ -11,13 +11,13 @@ class ManagerRecept{
             $this->c = kuharica_baza::connect();
     }
 
-    public static function getRecept(){
+    public function getRecept(){
         $sql = "SELECT * FROM recept";
         $r = $this->c->query($sql);
         while($row = $r->fetch_assoc()){
             $v = new Recept();
             $v->setId($row['id']);
-            $v->setNaziv($row['naziv']);
+            $v->setNaslov($row['naslov']);
             $v->setAutor($row['vk_autora']);
             $v->setVrstaJela($row['vk_vrsta_jela']);
             $v->setDatum($row['datum_objavljivanja']);

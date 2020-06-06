@@ -8,7 +8,7 @@ class Vrsta_jela {
     
 
     // UZIMANJE VRIJEDNOSTI ATRIBUTA IZ BAZE
-    public function __construct($id=false){
+    public function __construct($id=null){
          if($id){
             $c = kuharica_baza::connect();
             $sql = "SELECT * FROM vrsta_jela WHERE id = $id LIMIT 1";

@@ -52,6 +52,17 @@ class Recept {
     public function getBrojPregleda(){return $this->br_pregleda;}
     
     //dodati set funkcije ako treba
+    public function setId($id){$this->id=$id;}
+    public function setNaslov($naslov){$this->naslov=$naslov;}
+    public function setAutor($autor){$this->vk_autora=$autor;}
+    public function setVrstaJela($vk_vrsta_jela){$this->vk_vrsta_jela=$vk_vrsta_jela;}
+    public function setDatum($datum){$this->datum=$datum;}
+    public function setSastojci($sastojci){$this->sastojci=$sastojci;}
+    public function setTekstRecepta($tekst_recepta){$this->tekst_recepta=$tekst_recepta;}
+    public function setOcjena($ocjena){$this->ocjena=$ocjena;}
+    public function setBrojPregleda($br_pregleda){$this->br_pregleda=$br_pregleda;}
+    
+    
 }
 
 ?>
