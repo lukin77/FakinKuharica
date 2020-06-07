@@ -27,7 +27,7 @@
                     <a class="nav-link" href="korisnik.php">Početna<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="korisnik.php?a=dodaj">Dodaj novi recept</a>
+                    <a class="nav-link" href="korisnik.php?a=unos">Dodaj novi recept</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="korisnik.php?a=logout">Odjavi se</a>
@@ -63,36 +63,17 @@
     <div class="row">
         <!-- VRSTE JELA (Predjelo, glavno jelo, salata, desert) -->
         <div class="col-2">VRSTE JELA:
-            
-            <table>
-                <tr>
-                    <td>
-                        <?php include("$left_template.php") ?>
-                    </td>
-                </tr>
-            </table>
+            <?php include("$left_template.php") ?>
         </div>
         
         <!-- RECEPTI -->
-        <div class="col-8">
-            <table>
-                <tr>
-                    <td>
-                        <?php include ("$template.php")   ?>
-                    </td>
-                </tr>
-            </table>
+        <div class="col-8 col-md col-lg col-xl">
+            <?php include ("$template.php")   ?>
         </div>
         
         <!-- TIPOVI JELA (slano, slatko,..) -->
         <div class="col-2">
-            <table>
-                <tr>
-                    <td>
-                        <?php include ("$right_template.php")   ?>
-                    </td>
-                </tr>
-            </table>
+            <?php include ("$right_template.php")   ?>
         </div>
     </div>
   </div>

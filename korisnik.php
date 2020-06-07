@@ -46,18 +46,23 @@ switch ($a) {
                         header("Location: korisnik.php");
                     }
                     break;
-                    
-    
-    case 'dodaj' :  header("Location: Korisnik/View/unosRecept.php"); break;
     
     case 'unos' :   $recept = new Recept();
-                    $recept->setNaslov($_POST['naslov']);
-                    $recept->setAutor($_SESSION['userID']);
-                    $recept->setSastojci($_POST['sastojci']);
-                    $recept->setTekstRecepta($_POST['tekst_recepta']);
-                    $recept->setVrstaJela($_POST['vrsta_jela']);
-                    $rm->create($recept);
-                    header("Location: korisnik.php");
+                    if(!$_POST){
+                        $template = 'unosRecept';
+                        $vrsta_jela = $vjm->getVrsta_jela();
+                        $left_template = 'KprikazVrste_jela';
+                        $vrsta_tipa = $vt->getTip();
+                        $right_template = 'KprikazTip';
+                    }else{
+                        $recept->setNaslov($_POST['naslov']);
+                        $recept->setAutor($_SESSION['userID']);
+                        $recept->setSastojci($_POST['sastojci']);
+                        $recept->setTekstRecepta($_POST['tekst_recepta']);
+                        $recept->setVrstaJela($_POST['vrsta_jela']);
+                        $rm->create($recept);
+                        header("Location: korisnik.php");
+                    }
                     break;
                     
     
