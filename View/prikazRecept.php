@@ -7,7 +7,7 @@
     <p><u>Objavljeno</u>: <?php echo date('d.m.Y \u H:i',
             strtotime($recept->getDatum())); ?>&nbsp&nbsp&nbsp&nbsp&nbsp
             <u>Pogleda</u>: <?php echo $recept->getBrojPregleda(); ?>&nbsp&nbsp&nbsp&nbsp&nbsp
-            <u>Autor</u>: <?php echo $recept->getAutor(); ?></p>   <!-- NE RADI ISPIS AUTORA DOBRO -->
+            <u>Autor</u>: <?php echo $recept->getImeAutora(); ?></p>   
     <hr>
     </div>
 </html>

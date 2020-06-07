@@ -35,14 +35,8 @@
             </ul>
         </div>
     </nav>
+<br>
 
-
-    <div class="jumbotron-fluid">
-        <br>
-        <h1 class="display-2 px-lg-5 font-weigh-normal">Dobrodošli na Kuharicu!</h1>
-        <p class="lead pl-5 font-weight-normal">&nbsp&nbsp Web aplikacija za razmjenu recepata</p>
-    </div>
-    
 <!-- OPIS APLIKACIJE I PODACI ZA PRIJAVU KORISNIKA -->    
 <div class="container">
     <div class="card">
@@ -67,7 +61,7 @@
         </div>
         
         <!-- RECEPTI -->
-        <div class="col-8 col-md col-lg col-xl">
+        <div class="col-8 col-md col-lg col-xl bg-white">
             <?php include ("$template.php")   ?>
         </div>
         
