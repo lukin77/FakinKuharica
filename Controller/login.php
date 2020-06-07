@@ -20,11 +20,11 @@ if(!isset($_POST)){
     if($r && $r->num_rows==1)
     {
             //postavi sesion
-            $sesionID = session_id();
             session_start();
             $row = $r->fetch_assoc();
             $_SESSION['userID'] = $row['id'];
             $_SESSION['login'] = $username;
+            $_SESSION['vk_tip_korisnika'] = $row['vk_tip_korisnika'];
             var_dump($_SESSION);
             switch($row['vk_tip_korisnika'])
             {

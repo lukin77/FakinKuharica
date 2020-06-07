@@ -20,7 +20,35 @@ if (!isset($_GET['a'])) {
 }
 
 switch ($a) {
-    case 'dodaj' :   header("Location: Korisnik/View/unosRecept.php"); break;
+    
+    case 'izbrisi': 
+                    $recept = new Recept($_GET['id']);
+                    $rm->delete($recept);
+                    header("Location: korisnik.php");
+                    break;
+    
+    case 'uredi' :  
+                    $recept = new Recept($_GET['id']);
+                    if(!$_POST){
+                        $template = 'urediRecept';
+                        $vrsta_jela = $vjm->getVrsta_jela();
+                        $left_template = 'KprikazVrste_jela';
+                        $vrsta_tipa = $vt->getTip();
+                        $right_template = 'KprikazTip';
+                    }else{
+                        $recept->setId($_GET['id']);
+                        $recept->setNaslov($_POST['naslov']);
+                        $recept->setAutor($_SESSION['userID']);
+                        $recept->setSastojci($_POST['sastojci']);
+                        $recept->setTekstRecepta($_POST['tekst_recepta']);
+                        $recept->setVrstaJela($_POST['vrsta_jela']);
+                        $rm->update($recept);
+                        header("Location: korisnik.php");
+                    }
+                    break;
+                    
+    
+    case 'dodaj' :  header("Location: Korisnik/View/unosRecept.php"); break;
     
     case 'unos' :   $recept = new Recept();
                     $recept->setNaslov($_POST['naslov']);

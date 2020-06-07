@@ -55,27 +55,69 @@
     </div>
 </div>
 <br>
+
+<div class="container">
+  <div class="card-body">
+    <div class="row">
+        <!-- VRSTE JELA (Predjelo, glavno jelo, salata, desert) -->
+        <div class="col-2">VRSTE JELA:
+            
+            <table>
+                <tr>
+                    <td>
+                        <?php include("$left_template.php") ?>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- RECEPTI -->
+        <div class="col-8">
+            <table>
+                <tr>
+                    <td>
+                        <?php include ("$template.php")   ?>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- TIPOVI JELA (slano, slatko,..) -->
+        <div class="col-2">
+            <table>
+                <tr>
+                    <td>
+                        <?php include ("$right_template.php")   ?>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- OVO VRATI AKO NE BUDE RADIO BOOTSTRAP
 <div class="container">
     <table width="80%" border="1" cellspacing="0" cellpadding="10" style="margin-left:auto; margin-right:auto;">
       <tr> 
         <td width="10%" rowspan="2" valign="top"><p>VRSTE JELA:</p>
-            <!-- Popis vrsta jela (Predjelo, glavno jelo, salata, desert)-->
-            <?php include("$left_template.php"); ?>
+            <!-- Popis vrsta jela (Predjelo, glavno jelo, salata, desert)
+            <?php //include("$left_template.php"); ?>
       </tr>
       <tr> 
           <td height="342" valign="top"><p class="text-center">RECEPTI:</p>
-            <!-- Prikaz svih recepata -->
-            <?php include("$template.php"); ?>
+            <!-- Prikaz svih recepata 
+            <?php //include("$template.php"); ?>
        </td>
        <td valign="top" width="10%"><p class="text-center">TIP RECEPTA:</p>
-            <!-- ISPIS TAGOVA (slano, slatko, ...)  -->
-            <?php include("$right_template.php"); ?>
+            <!-- ISPIS TAGOVA (slano, slatko, ...)  
+            <?php //include("$right_template.php"); ?>
         </td>
       </tr>
 </table>
 </div>
-
-
+-->
     <script src="./bootstrap/js/jquery-3.4.1.min.js "></script>
     <script src="./bootstrap/js/popper.min.js "></script>
     <script src="./bootstrap/js/bootstrap-4.4.1.js "></script>

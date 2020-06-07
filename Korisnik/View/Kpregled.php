@@ -6,8 +6,3 @@ foreach ($recept as $v) {
 <p><a href="?a=recept&id=<?php echo $v->getId() ?> "> Više.. </a></p>
 <?php } ?>
 
-<?php 
-
-
-
-?>

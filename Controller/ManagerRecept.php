@@ -63,9 +63,13 @@ class ManagerRecept{
         $vk_vrsta_jela = $r->getVrstaJela();
         $sastojci = $r->getSastojci();
         $tekstRecepta = $r->getTekstRecepta();
-        $sql = "INSERT INTO recepti(naslov, vk_autora, vk_vrsta_jela, sastojci, tekst_recepta) VALUES ('$naslov', '$vk_autora','$vk_vrsta_jela', '$sastojci','$teksRecepta')";
-        $this->c->query($sql);
+        $sql = "INSERT INTO recept (naslov, vk_autora, vk_vrsta_jela, sastojci, tekst_recepta , ocjena, br_pregleda) VALUES ('$naslov', '$vk_autora','$vk_vrsta_jela', '$sastojci','$tekstRecepta',0 ,0)";
+        //$this->c->query($sql);
+        //if($c->errno) {echo $c->error;}
+        $c= kuharica_baza::connect();
+        $c->query($sql);
         if($c->errno) {echo $c->error;}
+        $c ->close();
         
     }
     
@@ -76,17 +80,24 @@ class ManagerRecept{
         $sastojci = $r->getSastojci();
         $tekstRecepta = $r->getTekstRecepta();
         $id = $r->getId();
-        $sql = "UPDATE recepti SET naslov ='$naslov', vk_autora = '$vk_autora', vk_vrsta_jela='$vk_vrsta_jela', sastojci='$sastojci', tekst_recepta = '$tekstRecepta' WHERE id = '$id' LIMIT 1"; 
-        $this->c->query($sql);
+        $sql = "UPDATE recept SET naslov ='$naslov', vk_autora = '$vk_autora', vk_vrsta_jela='$vk_vrsta_jela', sastojci='$sastojci', tekst_recepta = '$tekstRecepta' WHERE id = '$id' LIMIT 1"; 
+        $c = kuharica_baza::connect();
+        $c->query($sql);
         if($c->errno) {echo $c->error;}
+        $c ->close();
         
     }
     
     public function delete($r){
             $id = $r->getId();
-            $sql = "DELETE FROM recepti WHERE id = $id LIMIT 1";
-            $this->c->query($sql);
+            $sql = "DELETE FROM recept WHERE id = $id LIMIT 1";
+            $c = kuharica_baza::connect();
+            $c->query($sql);
+            if($c->errno) {echo $c->error;}
+            $c ->close();
     }
+    
+    
 }
 
 

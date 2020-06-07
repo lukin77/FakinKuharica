@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
     <head>
@@ -13,7 +14,7 @@
         <!-- NAVIGACIJA -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="korisnik.php">
-                <img src="bootstrap/img/hat.png" width="30" height="30" alt="logo" loading="lazy">
+                <img src="../../bootstrap/img/hat.png" width="30" height="30" alt="logo" loading="lazy">
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,34 +54,33 @@
                                     <label for="exampleFormControlTextarea1">Tekst Recepta</label>
                                     <textarea class="form-control" id="tekst_recepta" name="tekst_recepta" rows="5"></textarea>
                                 </div>
-                                <label><h3 class="text-dark">Vrsta jela</h3></label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="vrsta_jela" id="predjelo" value="1" >
-                                    <label class="form-check-label" for="exampleRadios1">
-                                        Predjelo
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="vrsta_jela" id="predjelo" value="2" >
-                                    <label class="form-check-label" for="exampleRadios1">
-                                        Glavno jelo
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="vrsta_jela" id="desert" value="3" >
-                                    <label class="form-check-label" for="exampleRadios1">
-                                        Desert
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="vrsta_jela" id="salata" value="4" >
-                                    <label class="form-check-label" for="exampleRadios1">
-                                        Salata
-                                    </label>
-                                </div>
+                                <fieldset class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-10">
+                                            <div class=""
+                                                 <legend class="text-dark col-form-label col-sm-2 pt-0"><h3>Vrsta jela</h3></legend>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="vrsta_jela" id="gridRadios1" value="1">
+                                                <label class="form-check-label" for="gridRadios1">Predjelo</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="vrsta_jela" id="gridRadios2" value="2">
+                                                <label class="form-check-label" for="gridRadios2">Glavno jelo</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="vrsta_jela" id="gridRadios3" value="3">
+                                                <label class="form-check-label" for="gridRadios3">Desert</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="vrsta_jela" id="gridRadios4" value="3">
+                                                <label class="form-check-label" for="gridRadios4">Salata</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
                                 <div class="text-center">
-                                      <button type="submit" class="btn btn-dark">Unesi</button>
-                                  </div> 
+                                    <button type="submit" class="btn btn-dark">Unesi</button>
+                                </div> 
                             </form>
                         </div>
                     </div>

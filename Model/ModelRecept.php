@@ -10,6 +10,7 @@ class Recept {
     private $tekst_recepta;
     private $ocjena;
     private $br_pregleda;
+    private $autor;
     
     //pristup vrijednostima 
     
@@ -39,8 +40,19 @@ class Recept {
         $c = kuharica_baza::connect();
         $sql = "UPDATE recept SET br_pregleda=br_pregleda+1 WHERE id=".$this->id;
         $c->query($sql);
+        
     }
     
+    public function getImeAutora(){
+        $c = kuharica_baza::connect();
+        $sql = "SELECT * FROM korisnik WHERE id = $this->vk_autora LIMIT 1";
+        $r = $c->query($sql);
+        $red = $r->fetch_assoc();
+        $this->autor = $red['ime']." ".$red['prezime'];
+        return $this->autor;
+    }
+
+
     public function getId(){return $this->id;}
     public function getNaslov(){return $this->naslov;}
     public function getAutor(){return $this->vk_autora;}
@@ -51,7 +63,6 @@ class Recept {
     public function getOcjena(){return $this->ocjena;}
     public function getBrojPregleda(){return $this->br_pregleda;}
     
-    //dodati set funkcije ako treba
     public function setId($id){$this->id=$id;}
     public function setNaslov($naslov){$this->naslov=$naslov;}
     public function setAutor($autor){$this->vk_autora=$autor;}
