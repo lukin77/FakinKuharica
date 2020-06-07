@@ -5,9 +5,14 @@ require_once ('Help/database.php');
 require_once ('Model/ModelVrsta_jela.php');
 require_once ('Model/ModelRecept.php');
 require_once ('Controller/ManagerRecept.php');
+require_once ('Controller/ManagerTip.php');
+require_once ('Model/ModelTip.php');
+
 $c = kuharica_baza::connect();
 $rm = new ManagerRecept();
 $vjm = new ManagerVrsta_jela();
+$vt = new ManagerTip();
+
 if (!isset($_GET['a'])) {
     $a = '';
 } else {
@@ -36,14 +41,18 @@ switch ($a) {
                     $recept->povecajBrojPregleda();
                     $template = 'KprikazRecept';
                     $vrsta_jela = $vjm->getVrsta_jela();
-                    $right_template = 'KprikazVrste_jela';
+                    $left_template = 'KprikazVrste_jela';
+                    $vrsta_tipa = $vt->getTip();
+                    $right_template = 'KprikazTip';
                     break;
 
     default : 
                     $recept = $rm->getRecept();
                     $template = 'Kpregled';
                     $vrsta_jela = $vjm->getVrsta_jela();
-                    $right_template = 'KprikazVrste_jela';
+                    $left_template = 'KprikazVrste_jela';
+                    $vrsta_tipa = $vt->getTip();
+                    $right_template = 'KprikazTip';
                     break;
 }
 include_once 'Korisnik/View/KprikazPocetne.php';
