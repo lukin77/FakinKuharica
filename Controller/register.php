@@ -13,7 +13,9 @@ if(!isset($_POST)){
     $ime = $_POST['name'];
     $prezime = $_POST['lastname'];
     
-    if(empty($username)){ 
+    
+}
+if(empty($username)){ 
         echo '<div class="alert alert-primary" role="alert"> Potrebno je korisnicko ime </div><br>'; 
         header('Refresh:3; url=../View/viewRegistracija.php');
     }
@@ -23,6 +25,4 @@ if(!isset($_POST)){
     if($password != $password2){
         echo 'Lozinke nisu iste'.'<br>'; header('Refresh:3; url=../View/viewRegistracija.php');;
     }
-}
-
 ?>

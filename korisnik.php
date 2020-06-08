@@ -7,11 +7,15 @@ require_once ('Model/ModelRecept.php');
 require_once ('Controller/ManagerRecept.php');
 require_once ('Controller/ManagerTip.php');
 require_once ('Model/ModelTip.php');
+require_once ('Model/Autentifikacija.php');
+ 
+Autentikacija::logiran();
 
 $c = kuharica_baza::connect();
 $rm = new ManagerRecept();
 $vjm = new ManagerVrsta_jela();
 $vt = new ManagerTip();
+$km = new Autentikacija();
 
 if (!isset($_GET['a'])) {
     $a = '';
@@ -20,6 +24,7 @@ if (!isset($_GET['a'])) {
 }
 
 switch ($a) {
+                    
     
     case 'izbrisi': 
                     $recept = new Recept($_GET['id']);
@@ -66,8 +71,8 @@ switch ($a) {
                     break;
                     
     
-    case 'logout': 
-                    header("Location: Controller/logout.php");
+    case 'logout': $korisnik = new Autentikacija();
+                   $korisnik->logout();
     
     case 'recept': 
                     $recept = new Recept($_GET['id']);

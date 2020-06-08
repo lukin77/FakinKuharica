@@ -27,18 +27,14 @@
                     <a class="nav-link" href="index.php">Početna<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?a=login">Prijava</a>
+                    <a class="nav-link" href="index.php?a=prijava">Prijava</a>
                 </li>
             </ul>
         </div>
     </nav>
 
 
-    <div class="jumbotron-fluid">
-        <br>
-        <h1 class="display-2 px-lg-5 font-weigh-normal">Dobrodošli na Kuharicu!</h1>
-        <p class="lead pl-5 font-weight-normal">&nbsp&nbsp Web aplikacija za razmjenu recepata</p>
-    </div>
+    <?php include ("$upper_template.php") ?>
     
 <!-- OPIS APLIKACIJE I PODACI ZA PRIJAVU KORISNIKA -->    
 <div class="container">

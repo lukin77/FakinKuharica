@@ -33,7 +33,7 @@ if(!isset($_POST)){
                 // 2 -> korisnik
                                     //treba dodati adminski dio
                     case 1:  header("Location: ../View/viewAdmin.php"); break;
-                    case 2:  header("Location: ../korisnik.php"); break;
+                    case 2:  header("Location: ../korisnik?a=login.php"); break;
                     default: header("Location: ../index.php");
             }
     }
