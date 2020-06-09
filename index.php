@@ -27,7 +27,7 @@ switch ($a) {
                     $korisnik->register();
                     if(!empty($korisnik->message)){
                         $poruka = implode(" ", $korisnik->message);
-                        echo "<script type='text/javascript'>alert('$poruka');</script>";
+                        echo '<div class="alert alert-primary" role="alert">'. $poruka .'</div>';
                     }else{
                         $korisnik->login();
                         break;

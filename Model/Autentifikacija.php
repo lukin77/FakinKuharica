@@ -40,16 +40,14 @@ class Autentikacija {
         if($password == $password2){
             $this->setPassword(md5($_POST['password']));
         }else{
-            array_push($this->message, 'Lozinke nisu iste');
+            array_push($this->message, 'Lozinke nisu iste. <br>');
         }
         
         $sql = "SELECT * FROM korisnik WHERE username = '$this->username' LIMIT 1";
         $r = $c->query($sql);
         
         if($r && $r->num_rows == 1){
-            
-            $mes = 'Postoji korisnik s istim username';
-            array_push($this->message,$mes);
+            array_push($this->message,'Postoji korisnik s istim username-om');
 
         }else{
             $ime = $this->getIme();
