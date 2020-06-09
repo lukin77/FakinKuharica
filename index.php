@@ -22,7 +22,30 @@ if (!isset($_GET['a'])) {
 
 switch ($a) {
     
+    case 'register':
+                    $korisnik = new Autentikacija();
+                    $korisnik->register();
+                    if(!empty($korisnik->message)){
+                        $poruka = implode(" ", $korisnik->message);
+                        echo "<script type='text/javascript'>alert('$poruka');</script>";
+                    }else{
+                        $korisnik->login();
+                        break;
+                    }
+    
+    case 'reg':     
+                    $navigacija = 'navigacijaRegistracija';
+                    $upper_template='viewRegistracija';
+                    $recept = $rm->getRecept();
+                    $template = 'pregled';
+                    $vrsta_jela = $vjm->getVrsta_jela();
+                    $left_template = 'prikazVrste_jela';
+                    $vrsta_tipa = $vt->getTip();
+                    $right_template = 'prikazTip';
+                    break;
+    
     case 'prijava': 
+                    $navigacija = 'navigacijaPrijava';
                     $upper_template='viewPrijava';
                     $recept = $rm->getRecept();
                     $template = 'pregled';
@@ -40,6 +63,8 @@ switch ($a) {
                     
 
     case 'recept': 
+                    $upper_template = 'jumbotron';
+                    $navigacija = 'navigacijaPocetna';
                     $recept = new Recept($_GET['id']);
                     $recept->povecajBrojPregleda();
                     $template = 'prikazRecept';
@@ -50,6 +75,7 @@ switch ($a) {
                     break;
 
     default :       
+                    $navigacija = 'navigacijaPocetna';
                     $upper_template = 'jumbotron';
                     $recept = $rm->getRecept();
                     $template = 'pregled';

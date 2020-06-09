@@ -27,6 +27,7 @@ switch ($a) {
                     
     
     case 'izbrisi': 
+                    $navigacija = 'KnavigacijaPocetna';
                     $recept = new Recept($_GET['id']);
                     $rm->delete($recept);
                     header("Location: korisnik.php");
@@ -54,6 +55,7 @@ switch ($a) {
     
     case 'unos' :   $recept = new Recept();
                     if(!$_POST){
+                        $navigacija = 'KnavigacijaUnos';
                         $template = 'unosRecept';
                         $vrsta_jela = $vjm->getVrsta_jela();
                         $left_template = 'KprikazVrste_jela';
@@ -75,6 +77,7 @@ switch ($a) {
                    $korisnik->logout();
     
     case 'recept': 
+                    $navigacija = 'KnavigacijaPocetna';
                     $recept = new Recept($_GET['id']);
                     $recept->povecajBrojPregleda();
                     $template = 'KprikazRecept';
@@ -85,6 +88,7 @@ switch ($a) {
                     break;
 
     default : 
+                    $navigacija = 'KnavigacijaPocetna';
                     $recept = $rm->getRecept();
                     $template = 'Kpregled';
                     $vrsta_jela = $vjm->getVrsta_jela();

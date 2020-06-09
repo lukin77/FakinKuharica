@@ -8,7 +8,7 @@ class Autentikacija {
     private $username;
     private $password;
     private $vk_tip;
-
+    public $message = array();
     // PRISTUP VRIJEDNOSTIMA ATRIBUTA
     public function __construct($id = false) {
 
@@ -23,21 +23,61 @@ class Autentikacija {
             $this->prezime = $row['prezime'];
             $this->username = $row['username'];
             $this->password = $row['password'];
-            $this->vk_tip = $row['vk_tip'];
+            $this->vk_tip = $row['vk_tip_korisnika'];
         }
+    }
+
+    public function register() {
+        $c = kuharica_baza::connect();
+        $this->setUsername($_POST['username']);
+        $this->setIme($_POST['name']);
+        $this->setPrezime($_POST['lastname']);
+        //registrirati se mogu samo korisnici
+        $this->setTip(2);
+        //jesu li unesene lozinke iste?
+        $password = $_POST['password'];
+        $password2 = $_POST['password2'];
+        if($password == $password2){
+            $this->setPassword(md5($_POST['password']));
+        }else{
+            array_push($this->message, 'Lozinke nisu iste');
+        }
+        
+        $sql = "SELECT * FROM korisnik WHERE username = '$this->username' LIMIT 1";
+        $r = $c->query($sql);
+        
+        if($r && $r->num_rows == 1){
+            
+            $mes = 'Postoji korisnik s istim username';
+            array_push($this->message,$mes);
+
+        }else{
+            $ime = $this->getIme();
+            $prezime = $this->getPrezime();
+            $username = $this->getUsername();
+            $password = $this->getPassword();
+            $tip = $this->getTip();
+            $sql = "INSERT INTO korisnik (ime, prezime, username, password, vk_tip_korisnika) VALUES ('$ime','$prezime', '$username','$password','$tip')";
+            $c->query($sql);
+            if($c->errno) { echo $c->error; }
+            
+        }
+        
+        
+        
     }
 
     // PRIJAVA KORISNIKA I PREUSMJERAVANJE PREMA TIPU KORISNIKA
     public function login() {
-        
+
         $c = kuharica_baza::connect();
         // PRISTUPNI PODACI
         $username = $_POST['username'];
-        //$password = md5($_POST['password']); zasad bez enkripcije
-        $password = $_POST['password'];
+        $password = md5($_POST['password']); 
+        //$password = $_POST['password'];
 
         // PRIPREMI I IZVRŠI UPIT
-        $upit = "SELECT * FROM korisnik WHERE username='$username' AND password = '$password' LIMIT 1";
+        $upit = "SELECT * FROM korisnik WHERE username='$username' AND password = '$password'";
         $r = $c->query($upit);
         // JE LI PRONAĐEN?
         if ($r && $r->num_rows == 1) {
@@ -58,6 +98,8 @@ class Autentikacija {
                     break;
                 default: header("Location: ../index.php");
             }
+        } else {
+            header("Location:  index.php?a=prijava");
         }
     }
 
