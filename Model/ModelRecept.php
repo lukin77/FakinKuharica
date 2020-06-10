@@ -27,7 +27,7 @@ class Recept {
             $this->naslov=$red['naslov'];
             $this->vk_autora=$red['vk_autora'];
             $this->vk_vrsta_jela=$red['vk_vrsta_jela'];
-            $this->datum=$red['datum_objavljivanja'];
+            $this->datum = $red['datum_objavljivanja'];
             $this->sastojci=$red['sastojci'];
             $this->tekst_recepta=$red['tekst_recepta'];
             $this->ocjena=$red['ocjena'];

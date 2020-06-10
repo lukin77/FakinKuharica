@@ -1,4 +1,4 @@
-<form method="POST" action="korisnik.php?a=unos">
+<form method="POST" action="korisnik.php?a=create">
     <div class="form-group">
         <label for="exampleInputUsername"><h4 class="text-dark">Naslov</h4></label>
         <input type="text" class="form-control" id="naslov" name="naslov">

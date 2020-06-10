@@ -57,7 +57,9 @@ class Autentikacija {
             $tip = $this->getTip();
             $sql = "INSERT INTO korisnik (ime, prezime, username, password, vk_tip_korisnika) VALUES ('$ime','$prezime', '$username','$password','$tip')";
             $c->query($sql);
-            if($c->errno) { echo $c->error; }
+            if($c->errno) { 
+                array_push($this->message, $c->error);
+            }
             
         }
         
@@ -71,8 +73,8 @@ class Autentikacija {
         $c = kuharica_baza::connect();
         // PRISTUPNI PODACI
         $username = $_POST['username'];
-        $password = md5($_POST['password']); 
-        //$password = $_POST['password'];
+        //$password = md5($_POST['password']); 
+        $password = $_POST['password'];
 
         // PRIPREMI I IZVRŠI UPIT
         $upit = "SELECT * FROM korisnik WHERE username='$username' AND password = '$password'";
@@ -85,7 +87,7 @@ class Autentikacija {
             $_SESSION['userID'] = $row['id'];
             $_SESSION['login'] = $username;
             $_SESSION['vk_tip_korisnika'] = $row['vk_tip_korisnika'];
-            switch ($row['vk_tip_korisnika']) {
+            switch ($_SESSION['vk_tip_korisnika']) {
                 //vk_tip_korisnika u nasoj bazi je:
                 // 1 -> admin
                 // 2 -> korisnik

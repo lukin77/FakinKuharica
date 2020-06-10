@@ -17,7 +17,7 @@
 
 
     <?php include ("$upper_template.php") ?>
-    
+     
 <!-- OPIS APLIKACIJE I PODACI ZA PRIJAVU KORISNIKA -->    
 <div class="container">
     <div class="card">
@@ -38,7 +38,7 @@
   <div class="card-body">
     <div class="row">
         <!-- VRSTE JELA (Predjelo, glavno jelo, salata, desert) -->
-        <div class="col-2">VRSTE JELA:
+        <div class="col-2 text-center bg-light"> <br> <h4> VRSTE JELA: </h4>
             <?php include("$left_template.php") ?>
         </div>
         
@@ -48,7 +48,7 @@
         </div>
         
         <!-- TIPOVI JELA (slano, slatko,..) -->
-        <div class="col-2">
+        <div class="col-2 text-center bg-light"> <br> <h4> TIPOVI JELA: </h4>
             <?php include ("$right_template.php")   ?>
         </div>
     </div>

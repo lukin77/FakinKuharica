@@ -24,6 +24,15 @@ if (!isset($_GET['a'])) {
 }
 
 switch ($a) {
+      
+    case 'vrsta_jela':  $navigacija = 'KnavigacijaPocetna';
+                        $recept = $rm->getRecept('kategorija');
+                        $template = 'Kpregled';
+                        $vrsta_jela = $vjm->getVrsta_jela();
+                        $left_template = 'KprikazVrste_jela';
+                        $vrsta_tipa = $vt->getTip();
+                        $right_template = 'KprikazTip';
+                        break;  
                     
     
     case 'izbrisi': 
@@ -53,23 +62,25 @@ switch ($a) {
                     }
                     break;
     
-    case 'unos' :   $recept = new Recept();
-                    if(!$_POST){
-                        $navigacija = 'KnavigacijaUnos';
-                        $template = 'unosRecept';
-                        $vrsta_jela = $vjm->getVrsta_jela();
-                        $left_template = 'KprikazVrste_jela';
-                        $vrsta_tipa = $vt->getTip();
-                        $right_template = 'KprikazTip';
-                    }else{
-                        $recept->setNaslov($_POST['naslov']);
-                        $recept->setAutor($_SESSION['userID']);
-                        $recept->setSastojci($_POST['sastojci']);
-                        $recept->setTekstRecepta($_POST['tekst_recepta']);
-                        $recept->setVrstaJela($_POST['vrsta_jela']);
-                        $rm->create($recept);
-                        header("Location: korisnik.php");
-                    }
+    case 'unos' :   $navigacija = 'KnavigacijaUnos';
+                    $template = 'unosRecept';
+                    $vrsta_jela = $vjm->getVrsta_jela();
+                    $left_template = 'KprikazVrste_jela';
+                    $vrsta_tipa = $vt->getTip();
+                    $right_template = 'KprikazTip';
+                    break;
+                    
+    case 'create':  
+                    $recept = new Recept();
+                    $recept->setNaslov($_POST['naslov']);
+                    $recept->setAutor($_SESSION['userID']);
+                    $recept->setSastojci($_POST['sastojci']);
+                    $recept->setTekstRecepta($_POST['tekst_recepta']);
+                    $recept->setVrstaJela($_POST['vrsta_jela']);
+                    $recept->setDatum(date("Y-m-d"));
+                    $rm->create($recept);
+                    //var_dump($recept);
+                    header("Location: korisnik.php");
                     break;
                     
     

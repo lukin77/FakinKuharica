@@ -35,7 +35,7 @@
   <div class="card-body">
     <div class="row">
         <!-- VRSTE JELA (Predjelo, glavno jelo, salata, desert) -->
-        <div class="col-2">VRSTE JELA:
+        <div class="col-2 bg-light">VRSTE JELA:
             <?php include("$left_template.php") ?>
         </div>
         
@@ -45,7 +45,7 @@
         </div>
         
         <!-- TIPOVI JELA (slano, slatko,..) -->
-        <div class="col-2">
+        <div class="col-2 text-right bg-light">
             <?php include ("$right_template.php")   ?>
         </div>
     </div>

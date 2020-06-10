@@ -22,6 +22,16 @@ if (!isset($_GET['a'])) {
 
 switch ($a) {
     
+    case 'vrsta_jela':  $navigacija = 'navigacijaPocetna';
+                        $upper_template = 'jumbotron';
+                        $recept = $rm->getRecept('kategorija');
+                        $template = 'pregled';
+                        $vrsta_jela = $vjm->getVrsta_jela();
+                        $left_template = 'prikazVrste_jela';
+                        $vrsta_tipa = $vt->getTip();
+                        $right_template = 'prikazTip';
+                        break;
+    
     case 'register':
                     $korisnik = new Autentikacija();
                     $korisnik->register();
@@ -77,7 +87,7 @@ switch ($a) {
     default :       
                     $navigacija = 'navigacijaPocetna';
                     $upper_template = 'jumbotron';
-                    $recept = $rm->getRecept();
+                    $recept = $rm->getRecept('svi');
                     $template = 'pregled';
                     $vrsta_jela = $vjm->getVrsta_jela();
                     $left_template = 'prikazVrste_jela';
