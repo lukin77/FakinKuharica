@@ -35,7 +35,10 @@ class ManagerTip{
             $vrste[] = $v;
         }
         foreach ($vrste as $v){
-          echo '<p><a href="?a=vrsta_tipa&id="'.$v->getId().'>'.$v->getNaziv().'</a></p>';  
+          echo '<div class="form-check">';
+          echo '<input class="form-check-input" type="checkbox" name="tip_jela" id="defaultCheck'.$v->getId().'" value="'.$v->getId().'">';
+          echo '<label class="form-check-label" for = "defaultCheck'.$v->getId().'" >'.$v->getNaziv().'</label>';
+          echo '</div>';
         }
         
     }

@@ -36,7 +36,10 @@ class ManagerVrsta_jela{
             $vrste[] = $v;
         }
         foreach ($vrste as $v){
-          echo '<p><a href="?a=vrsta_jela&id="'.$v->getId().'>'.$v->getNaziv().'</a></p>';  
+          echo '<div class="form-check">';
+          echo ' <input class="form-check-input" type="radio" name="vrsta_jela" id="gridRadios'.$v->getId().'" value="'.$v->getId().'">';
+          echo '<label class="form-check-label" for = "gridRadios'.$v->getId().'" >'.$v->getNaziv().'</label>';
+          echo '</div>';
         }
         
     }

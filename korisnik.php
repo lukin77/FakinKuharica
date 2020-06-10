@@ -24,14 +24,23 @@ if (!isset($_GET['a'])) {
 }
 
 switch ($a) {
+    
+    case 'tip':         $navigacija = 'KnavigacijaPocetna';
+                        $recept = $rm->getRecept('tip');
+                        $template = 'View/pregled';
+                        $vrsta_jela = $vjm->getVrsta_jela();
+                        $left_template = 'View/prikazVrste_jela';
+                        $vrsta_tipa = $vt->getTip();
+                        $right_template = 'View/prikazTip';
+                        break; 
       
     case 'vrsta_jela':  $navigacija = 'KnavigacijaPocetna';
                         $recept = $rm->getRecept('kategorija');
-                        $template = 'Kpregled';
+                        $template = 'View/pregled';
                         $vrsta_jela = $vjm->getVrsta_jela();
-                        $left_template = 'KprikazVrste_jela';
+                        $left_template = 'View/prikazVrste_jela';
                         $vrsta_tipa = $vt->getTip();
-                        $right_template = 'KprikazTip';
+                        $right_template = 'View/prikazTip';
                         break;  
                     
     
@@ -45,11 +54,12 @@ switch ($a) {
     case 'uredi' :  
                     $recept = new Recept($_GET['id']);
                     if(!$_POST){
+                        $navigacija = 'KnavigacijaPocetna';
                         $template = 'urediRecept';
                         $vrsta_jela = $vjm->getVrsta_jela();
-                        $left_template = 'KprikazVrste_jela';
+                        $left_template = 'View/prikazVrste_jela';
                         $vrsta_tipa = $vt->getTip();
-                        $right_template = 'KprikazTip';
+                        $right_template = 'View/prikazTip';
                     }else{
                         $recept->setId($_GET['id']);
                         $recept->setNaslov($_POST['naslov']);
@@ -65,9 +75,9 @@ switch ($a) {
     case 'unos' :   $navigacija = 'KnavigacijaUnos';
                     $template = 'unosRecept';
                     $vrsta_jela = $vjm->getVrsta_jela();
-                    $left_template = 'KprikazVrste_jela';
+                    $left_template = 'View/prikazVrste_jela';
                     $vrsta_tipa = $vt->getTip();
-                    $right_template = 'KprikazTip';
+                    $right_template = 'View/prikazTip';
                     break;
                     
     case 'create':  
@@ -93,19 +103,19 @@ switch ($a) {
                     $recept->povecajBrojPregleda();
                     $template = 'KprikazRecept';
                     $vrsta_jela = $vjm->getVrsta_jela();
-                    $left_template = 'KprikazVrste_jela';
+                    $left_template = 'View/prikazVrste_jela';
                     $vrsta_tipa = $vt->getTip();
-                    $right_template = 'KprikazTip';
+                    $right_template = 'View/prikazTip';
                     break;
 
     default : 
                     $navigacija = 'KnavigacijaPocetna';
                     $recept = $rm->getRecept();
-                    $template = 'Kpregled';
+                    $template = 'View/pregled';
                     $vrsta_jela = $vjm->getVrsta_jela();
-                    $left_template = 'KprikazVrste_jela';
+                    $left_template = 'View/prikazVrste_jela';
                     $vrsta_tipa = $vt->getTip();
-                    $right_template = 'KprikazTip';
+                    $right_template = 'View/prikazTip';
                     break;
 }
 include_once 'Korisnik/View/KprikazPocetne.php';

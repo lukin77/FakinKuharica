@@ -24,12 +24,21 @@ class ManagerRecept {
 
 
             case 'kategorija': $id = $_GET['id'];
-                               $sql = "SELECT r.id, r.naslov, r.sastojci,  r.tekst_recepta, r.vk_vrsta_jela, r.datum_objavljivanja, r.br_pregleda, r.ocjena, k.id AS kid, k.ime, k.prezime, v.naziv
+                $sql = "SELECT r.id, r.naslov, r.sastojci,  r.tekst_recepta, r.vk_vrsta_jela, r.datum_objavljivanja, r.br_pregleda, r.ocjena, k.id AS kid, k.ime, k.prezime, v.naziv
                                         FROM recept r
                                         LEFT JOIN vrsta_jela v ON (r.vk_vrsta_jela = v.id) 
                                         LEFT JOIN korisnik k ON (r.vk_autora = k.id) 
                                         WHERE v.id = $id";
-							
+                break;
+
+            case 'tip': $id = $_GET['id'];
+                $sql = "SELECT r.id, r.naslov, r.sastojci, r.tekst_recepta, r.vk_vrsta_jela, r.datum_objavljivanja, r.br_pregleda, r.ocjena, k.id AS kid, t.id, t.naziv, tr.id_tip, tr.id_recept
+                                FROM recept r
+                                LEFT JOIN tip_recepta tr ON (r.id = tr.id_recept)
+                                LEFT JOIN tip t ON (t.id = tr.id_tip)
+                                LEFT JOIN korisnik k ON (r.vk_autora = k.id)
+                                WHERE t.id = $id";
+                break;
         }
 
         $r = $this->c->query($sql);
@@ -46,7 +55,7 @@ class ManagerRecept {
             $v->setBrojPregleda($row['br_pregleda']);
             $this->vise_vrsta_recepata[] = $v;
         }
-        return $this->vise_vrsta_recepata; 
+        return $this->vise_vrsta_recepata;
     }
 
     public function create(Recept $r) {

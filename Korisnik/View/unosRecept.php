@@ -14,24 +14,11 @@
     <fieldset class="form-group">
         <div class="row">
             <div class="col-sm-10">
-                <div class=""
-                     <legend class="text-dark col-form-label col-sm-2 pt-0"><h3>Vrsta jela</h3></legend>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="vrsta_jela" id="gridRadios1" value="1">
-                        <label class="form-check-label" for="gridRadios1">Predjelo</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="vrsta_jela" id="gridRadios2" value="2">
-                        <label class="form-check-label" for="gridRadios2">Glavno jelo</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="vrsta_jela" id="gridRadios3" value="3">
-                        <label class="form-check-label" for="gridRadios3">Desert</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="vrsta_jela" id="gridRadios4" value="3">
-                        <label class="form-check-label" for="gridRadios4">Salata</label>
-                    </div>
+                <div class="form-group">
+                    <h3>Vrsta jela:</h3>
+                    <?php ManagerVrsta_jela::IspisVrsta_jela()  ?>
+                    <h3>Tip jela:</h3>
+                    <?php ManagerTip::IspisTip() ?>
                 </div>
             </div>
     </fieldset>

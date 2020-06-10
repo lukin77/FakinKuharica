@@ -22,6 +22,16 @@ if (!isset($_GET['a'])) {
 
 switch ($a) {
     
+    case 'tip':         $navigacija = 'navigacijaPocetna';
+                        $upper_template = 'jumbotron';
+                        $recept = $rm->getRecept('tip');
+                        $template = 'pregled';
+                        $vrsta_jela = $vjm->getVrsta_jela();
+                        $left_template = 'prikazVrste_jela';
+                        $vrsta_tipa = $vt->getTip();
+                        $right_template = 'prikazTip';
+                        break; 
+    
     case 'vrsta_jela':  $navigacija = 'navigacijaPocetna';
                         $upper_template = 'jumbotron';
                         $recept = $rm->getRecept('kategorija');
