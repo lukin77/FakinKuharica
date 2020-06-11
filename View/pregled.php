@@ -1,9 +1,9 @@
 <?php
 foreach ($recept as $r) {
+    echo '<h3>'.$r->getNaslov().'</h3>';
+    echo '<p>'.$r->getOpis().'</p>';
+    echo '<p><a href="?a=recept&id='.$r->getId().'">Više..</a></p>';
+    echo '<hr>';   
+} 
 ?>
-<h3> <?php echo $r->getNaslov() ?></h3>
-<p><?php echo $r->getOpis() ?> </p>
-<p><a href="?a=recept&id=<?php echo $r->getId() ?> "> Više.. </a></p>
-<hr>
-<?php } ?>
 

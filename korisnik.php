@@ -121,7 +121,7 @@ switch ($a) {
                     $navigacija = 'KnavigacijaPocetna';
                     $recept = new Recept($_GET['id']);
                     $recept->povecajBrojPregleda();
-                    $template = 'KprikazRecept';
+                    $template = 'View/prikazRecept';
                     $vrsta_jela = $vjm->getVrsta_jela();
                     $left_template = 'View/prikazVrste_jela';
                     $vrsta_tipa = $vt->getTip();

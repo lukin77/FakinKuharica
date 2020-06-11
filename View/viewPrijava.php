@@ -32,8 +32,6 @@
     </div>
 </div>
 <br>
-
-
 <!-- OBRAZAC ZA PRIJAVU KORISNIKA -->
 <div class="container ">
     <div class="row ">

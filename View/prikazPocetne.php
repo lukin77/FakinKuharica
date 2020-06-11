@@ -1,83 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kuharica</title>
-    <!-- Bootstrap -->
-    <link href="./bootstrap/css/bootstrap-4.4.1.css" rel="stylesheet">
-    <link href="./bootstrap/css/style.css" rel="stylesheet">
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kuharica</title>
+        <!-- Bootstrap -->
+        <link href="./bootstrap/css/bootstrap-4.4.1.css" rel="stylesheet">
+        <link href="./bootstrap/css/style.css" rel="stylesheet">
+    </head>
 
-<body>
-<!-- NAVIGACIJA -->
-    <?php include ("$navigacija.php") ?>
+    <body>
+        <!-- NAVIGACIJA -->
+        <?php include ("$navigacija.php") ?>
 
 
-    <?php include ("$upper_template.php") ?>
-     
-<!-- OPIS APLIKACIJE I PODACI ZA PRIJAVU KORISNIKA -->    
-<div class="container">
-    <div class="card">
-        <div class="card-header">
-            <h4>Upute i opis aplikacije</h4>
+        <?php include ("$upper_template.php") ?>
+
+        <!-- OPIS APLIKACIJE I PODACI ZA PRIJAVU KORISNIKA -->    
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Upute i opis aplikacije</h4>
+                </div>
+                <div class="card-body">
+                    Početna stranica, uz ostale elemente, mora imati opis funkcija koje aplikacija nudi kao i
+                    uputstva za njeno korištenje. Zbog lakšeg pregleda navedite korisnička imena i lozinke
+                    za sve tipove korisnika koji se mogu koristiti Vašom web aplikacijom.
+                    <br><br>
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-            Početna stranica, uz ostale elemente, mora imati opis funkcija koje aplikacija nudi kao i
-            uputstva za njeno korištenje. Zbog lakšeg pregleda navedite korisnička imena i lozinke
-            za sve tipove korisnika koji se mogu koristiti Vašom web aplikacijom.
-            <br><br>
-        </div>
-    </div>
-</div>
-<br>
+        <br>
 
-<div class="container ">
-  <div class="card-body">
-    <div class="row">
-        <!-- VRSTE JELA (Predjelo, glavno jelo, salata, desert) -->
-        <div class="col-2 text-center bg-light"> <br> <h4> VRSTE JELA: </h4>
-            <?php include("$left_template.php") ?>
+        <div class="container ">
+            <div class="card-body">
+                <div class="row">
+                    <!-- VRSTE JELA (Predjelo, glavno jelo, salata, desert) -->
+                    <div class="col-2 text-center bg-light"> <br> <h4> VRSTE JELA: </h4>
+                        <?php include("$left_template.php") ?>
+                    </div>
+
+                    <!-- RECEPTI -->
+                    <div class="col-8 col-md col-lg col-xl bg-white">
+                        <?php include ("$template.php") ?>
+                    </div>
+
+                    <!-- TIPOVI JELA (slano, slatko,..) -->
+                    <div class="col-2 text-center bg-light"> <br> <h4> TIPOVI JELA: </h4>
+                        <?php include ("$right_template.php") ?>
+                    </div>
+                </div>
+            </div>
         </div>
         
-        <!-- RECEPTI -->
-        <div class="col-8 col-md col-lg col-xl bg-white">
-            <?php include ("$template.php")   ?>
-        </div>
-        
-        <!-- TIPOVI JELA (slano, slatko,..) -->
-        <div class="col-2 text-center bg-light"> <br> <h4> TIPOVI JELA: </h4>
-            <?php include ("$right_template.php")   ?>
-        </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- OVO VRATI AKO NE BUDE RADIO BOOTSTRAP
-<div class="container">
-    <table width="80%" border="1" cellspacing="0" cellpadding="10" style="margin-left:auto; margin-right:auto;">
-      <tr> 
-        <td width="10%" rowspan="2" valign="top"><p>VRSTE JELA:</p>
-            <!-- Popis vrsta jela (Predjelo, glavno jelo, salata, desert)
-            <?php //include("$left_template.php"); ?>
-      </tr>
-      <tr> 
-          <td height="342" valign="top"><p class="text-center">RECEPTI:</p>
-            <!-- Prikaz svih recepata 
-            <?php //include("$template.php"); ?>
-       </td>
-       <td valign="top" width="10%"><p class="text-center">TIP RECEPTA:</p>
-            <!-- ISPIS TAGOVA (slano, slatko, ...)  
-            <?php //include("$right_template.php"); ?>
-        </td>
-      </tr>
-</table>
-</div>
--->
-    <script src="./bootstrap/js/jquery-3.4.1.min.js "></script>
-    <script src="./bootstrap/js/popper.min.js "></script>
-    <script src="./bootstrap/js/bootstrap-4.4.1.js "></script>
-</body>
+        <script src="./bootstrap/js/jquery-3.4.1.min.js "></script>
+        <script src="./bootstrap/js/popper.min.js "></script>
+        <script src="./bootstrap/js/bootstrap-4.4.1.js "></script>
+    </body>

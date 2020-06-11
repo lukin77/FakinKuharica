@@ -73,8 +73,8 @@ class Autentikacija {
         $c = kuharica_baza::connect();
         // PRISTUPNI PODACI
         $username = $_POST['username'];
-        //$password = md5($_POST['password']); 
-        $password = $_POST['password'];
+        $password = md5($_POST['password']); 
+        //$password = $_POST['password'];
 
         // PRIPREMI I IZVRŠI UPIT
         $upit = "SELECT * FROM korisnik WHERE username='$username' AND password = '$password'";
@@ -108,7 +108,7 @@ class Autentikacija {
         //session_start();
         unset($_SESSION['userID']);
         unset($_SESSION['login']);
-        unset($_SESSION['tip']);
+        unset($_SESSION['vk_tip_korisnika']);
         session_destroy();
         header("Location: index.php");
     }
