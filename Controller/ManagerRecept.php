@@ -32,7 +32,7 @@ class ManagerRecept {
                 break;
 
             case 'tip': $id = $_GET['id'];
-                $sql = "SELECT r.id, r.naslov, r.sastojci, r.tekst_recepta, r.vk_vrsta_jela, r.datum_objavljivanja, r.br_pregleda, r.ocjena, k.id AS kid, t.id, t.naziv, tr.id_tip, tr.id_recept
+                $sql = "SELECT r.id, r.naslov, r.sastojci, r.tekst_recepta, r.vk_vrsta_jela, r.datum_objavljivanja, r.br_pregleda, r.ocjena, k.id AS kid, t.id AS tipid, t.naziv, tr.id_tip, tr.id_recept
                                 FROM recept r
                                 LEFT JOIN tip_recepta tr ON (r.id = tr.id_recept)
                                 LEFT JOIN tip t ON (t.id = tr.id_tip)
@@ -75,6 +75,8 @@ class ManagerRecept {
         }
         $c->close();
     }
+    
+    
 
     public function update(Recept $r) {
         $naslov = $r->getNaslov();
@@ -100,9 +102,26 @@ class ManagerRecept {
         if ($c->errno) {
             echo $c->error;
         }
+        $sql2 = "DELETE FROM tip_recepta WHERE id_recept = $id ";
+        $c->query($sql2);
+        if ($c->errno) {
+            echo $c->error;
+        }
         $c->close();
     }
-
+    
+    public function ReceptTip($id_recept , $id_tip = array()){
+        $c= kuharica_baza::connect();
+        foreach ($id_tip as $t){
+            $sql = "INSERT INTO tip_recepta (id_tip, id_recept) VALUES ('$t', '$id_recept')";
+            $c->query($sql);
+            if ($c->errno) {
+            echo $c->error;
+            }
+        }
+        $c->close();
+        
+    }
 }
 
 ?>

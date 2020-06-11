@@ -11,6 +11,7 @@ class Recept {
     private $ocjena;
     private $br_pregleda;
     private $autor;
+    private $tip = array();
     
     //pristup vrijednostima 
     
@@ -62,7 +63,8 @@ class Recept {
     public function getTekstRecepta(){return $this->tekst_recepta;}
     public function getOcjena(){return $this->ocjena;}
     public function getBrojPregleda(){return $this->br_pregleda;}
-    
+    public function getTip(){return $this->tip;}
+
     public function setId($id){$this->id=$id;}
     public function setNaslov($naslov){$this->naslov=$naslov;}
     public function setAutor($autor){$this->vk_autora=$autor;}
@@ -72,8 +74,8 @@ class Recept {
     public function setTekstRecepta($tekst_recepta){$this->tekst_recepta=$tekst_recepta;}
     public function setOcjena($ocjena){$this->ocjena=$ocjena;}
     public function setBrojPregleda($br_pregleda){$this->br_pregleda=$br_pregleda;}
-    
-    
+    public function setTip($tip){$this->tip=$tip;}
+
 }
 
 ?>

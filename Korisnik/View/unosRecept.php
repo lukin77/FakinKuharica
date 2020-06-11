@@ -17,8 +17,8 @@
                 <div class="form-group">
                     <h3>Vrsta jela:</h3>
                     <?php ManagerVrsta_jela::IspisVrsta_jela()  ?>
-                    <h3>Tip jela:</h3>
-                    <?php ManagerTip::IspisTip() ?>
+                    <!--<h3>Tip jela:</h3>-->
+                    <?php //ManagerTip::IspisTip() ?> 
                 </div>
             </div>
     </fieldset>

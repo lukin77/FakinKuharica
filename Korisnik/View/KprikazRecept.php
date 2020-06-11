@@ -15,10 +15,15 @@
         //korisnikov clanak
         echo '<a class="btn btn-primary" href="korisnik.php?a=uredi&id='.$recept->getId().'" role="button">Uredi</a>';
         echo '&nbsp&nbsp&nbsp';
+        echo '<a class="btn btn-primary" href="korisnik.php?a=dodajtip&id='.$recept->getId().'" role="button">Dodaj tip</a>';
+        echo '&nbsp&nbsp&nbsp';
         echo '<a class="btn btn-primary" href="korisnik.php?a=izbrisi&id='.$recept->getId().'" role="button">Izbrisi</a>';
     }elseif($_SESSION['vk_tip_korisnika'] == 1){
         //admin
         echo '<a class="btn btn-primary" href="korisnik.php?a=izbrisi&id='.$recept->getId().'" role="button">Izbrisi</a>';
+        echo '&nbsp&nbsp&nbsp';
+        echo '<a class="btn btn-primary" href="korisnik.php?a=dodajtip&id='.$recept->getId().'" role="button">Dodaj tip</a>';
+        echo '&nbsp&nbsp&nbsp';
     }
     
     

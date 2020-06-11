@@ -1,5 +1,5 @@
 <?php
-class ManagerTip{
+class ManagerTip extends ManagerRecept{
     //
     private $vise_vrsta_tipova = array();    //vise_vrsta_jela
     private $vrsta_tipa;    //vrsta_jela
@@ -8,7 +8,9 @@ class ManagerTip{
     public function __construct(){
             $this->c = kuharica_baza::connect();
     }
-
+    
+    
+    
     public function getTip(){       //getVrsta_jela
         
         $sql = "SELECT * FROM tip";
@@ -36,7 +38,7 @@ class ManagerTip{
         }
         foreach ($vrste as $v){
           echo '<div class="form-check">';
-          echo '<input class="form-check-input" type="checkbox" name="tip_jela" id="defaultCheck'.$v->getId().'" value="'.$v->getId().'">';
+          echo '<input class="form-check-input" type="checkbox" name="tip_jela[]" id="defaultCheck'.$v->getId().'" value="'.$v->getId().'">';
           echo '<label class="form-check-label" for = "defaultCheck'.$v->getId().'" >'.$v->getNaziv().'</label>';
           echo '</div>';
         }

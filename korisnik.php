@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once ('Controller/ManagerVrsta_jela.php');
+//require_once ('Help/help.php');
 require_once ('Help/database.php');
 require_once ('Model/ModelVrsta_jela.php');
 require_once ('Model/ModelRecept.php');
@@ -25,6 +26,21 @@ if (!isset($_GET['a'])) {
 
 switch ($a) {
     
+    case 'dodajtip':    if(!$_POST){
+                            $recept = new Recept($_GET['id']);
+                            $navigacija = 'KnavigacijaPocetna';
+                            $template = 'tip';
+                            $vrsta_jela = $vjm->getVrsta_jela();
+                            $left_template = 'View/prikazVrste_jela';
+                            $vrsta_tipa = $vt->getTip();
+                            $right_template = 'View/prikazTip';
+                        }else{
+                            $rm->ReceptTip($_GET['id'], $_POST['tip_jela']);
+                            header("Location: korisnik.php");
+                        }
+                        break;
+    
+    
     case 'tip':         $navigacija = 'KnavigacijaPocetna';
                         $recept = $rm->getRecept('tip');
                         $template = 'View/pregled';
@@ -48,6 +64,7 @@ switch ($a) {
                     $navigacija = 'KnavigacijaPocetna';
                     $recept = new Recept($_GET['id']);
                     $rm->delete($recept);
+                    
                     header("Location: korisnik.php");
                     break;
     
@@ -67,10 +84,12 @@ switch ($a) {
                         $recept->setSastojci($_POST['sastojci']);
                         $recept->setTekstRecepta($_POST['tekst_recepta']);
                         $recept->setVrstaJela($_POST['vrsta_jela']);
+                        //$recept->setTip($_POST['tip_jela']);
                         $rm->update($recept);
+                        //$rm->ReceptTip($_GET['id'], $_POST['tip_jela']);
                         header("Location: korisnik.php");
-                    }
-                    break;
+                        }
+                        break;
     
     case 'unos' :   $navigacija = 'KnavigacijaUnos';
                     $template = 'unosRecept';
@@ -81,7 +100,7 @@ switch ($a) {
                     break;
                     
     case 'create':  
-                    $recept = new Recept();
+                    $recept = new Recept(); 
                     $recept->setNaslov($_POST['naslov']);
                     $recept->setAutor($_SESSION['userID']);
                     $recept->setSastojci($_POST['sastojci']);
@@ -89,7 +108,6 @@ switch ($a) {
                     $recept->setVrstaJela($_POST['vrsta_jela']);
                     $recept->setDatum(date("Y-m-d"));
                     $rm->create($recept);
-                    //var_dump($recept);
                     header("Location: korisnik.php");
                     break;
                     
