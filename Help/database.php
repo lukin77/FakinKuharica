@@ -5,10 +5,9 @@ class kuharica_baza {
     const pass = '';
     const database = 'kuharica_baza';
 
-    //komentaraksfhkashfafjlksdkčls
-
     public static function connect() {
         $c = new mysqli(self::host, self::user, self::pass, self::database);
+        $c->query("SET CHARACTER SET utf8");
         return $c;
     }
 }

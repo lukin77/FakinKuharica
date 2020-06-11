@@ -1,14 +1,18 @@
 <form method="POST" action="korisnik.php?a=create">
     <div class="form-group">
-        <label for="exampleInputUsername"><h4 class="text-dark">Naslov</h4></label>
+        <label for="exampleInputUsername"><h4 class="text-dark">Naslov:</h4></label>
         <input type="text" class="form-control" id="naslov" name="naslov">
     </div>
     <div class="form-group">
-        <label for="exampleFormControlTextarea1">Sastojci</label>
+        <label for="exampleFormControlTextarea1">Sastojci:</label>
         <textarea class="form-control" id="sastojci" name="sastojci" rows="3"></textarea>
     </div>
     <div class="form-group">
-        <label for="exampleFormControlTextarea1">Tekst Recepta</label>
+        <label for="exampleFormControlTextarea2">Opis:</label>
+        <textarea class="form-control" id="opis" name="opis" rows="2"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea3">Tekst Recepta:</label>
         <textarea class="form-control" id="tekst_recepta" name="tekst_recepta" rows="5"></textarea>
     </div>
     <fieldset class="form-group">
@@ -23,6 +27,7 @@
             </div>
     </fieldset>
     <div class="text-center">
-        <button type="submit" class="btn btn-dark">Unesi</button>
+        <p><button type="submit" class="btn btn-dark">Unesi</button>
+        <button class="btn btn-dark" href="<?php echo $_SERVER['SCRIPT_NAME']; ?>">Natrag...</button></p>
     </div> 
 </form>

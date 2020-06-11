@@ -82,6 +82,7 @@ switch ($a) {
                         $recept->setNaslov($_POST['naslov']);
                         $recept->setAutor($_SESSION['userID']);
                         $recept->setSastojci($_POST['sastojci']);
+                        $recept->setOpis($_POST['opis']);
                         $recept->setTekstRecepta($_POST['tekst_recepta']);
                         $recept->setVrstaJela($_POST['vrsta_jela']);
                         //$recept->setTip($_POST['tip_jela']);
@@ -104,6 +105,7 @@ switch ($a) {
                     $recept->setNaslov($_POST['naslov']);
                     $recept->setAutor($_SESSION['userID']);
                     $recept->setSastojci($_POST['sastojci']);
+                    $recept->setOpis($_POST['opis']);
                     $recept->setTekstRecepta($_POST['tekst_recepta']);
                     $recept->setVrstaJela($_POST['vrsta_jela']);
                     $recept->setDatum(date("Y-m-d"));

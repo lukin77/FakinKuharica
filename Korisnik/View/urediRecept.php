@@ -12,15 +12,18 @@
                     <textarea class="form-control" id="sastojci" name="sastojci" rows="3"><?php echo $recept->getSastojci() ?></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Tekst Recepta</label>
+                    <label for="exampleFormControlTextarea2">Opis</label>
+                    <textarea class="form-control" id="opis" name="opis" rows="2"><?php echo $recept->getOpis() ?></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea3">Tekst Recepta</label>
                     <textarea class="form-control" id="tekst_recepta" name="tekst_recepta" rows="5"><?php echo $recept->getTekstRecepta() ?></textarea>
                 </div>
                 <h3>Vrsta jela:</h3>
                     <?php ManagerVrsta_jela::IspisVrsta_jela()  ?>
-                <h3>Tip jela:</h3>
-                    <?php ManagerTip::IspisTip() ?>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-dark">Unesi</button>
+                    <button type="submit" class="btn btn-dark">Unesi...</button>
+                    <button class="btn btn-dark" href="<?php echo $_SERVER['SCRIPT_NAME']; ?>">Natrag...</button>
                 </div> 
             </form>
         </div>
