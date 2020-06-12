@@ -30,6 +30,29 @@
                     za sve tipove korisnika koji se mogu koristiti Vašom web aplikacijom.
                     <br><br>
                 </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Username</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">Tip korisnika</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">jlukin</th>
+                                <td>123</td>
+                                <td>Administrator</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">anovokmet</th>
+                                <td>123</td>
+                                <td>Korisnik</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <br>
@@ -54,7 +77,7 @@
                 </div>
             </div>
         </div>
-        
+
         <script src="./bootstrap/js/jquery-3.4.1.min.js "></script>
         <script src="./bootstrap/js/popper.min.js "></script>
         <script src="./bootstrap/js/bootstrap-4.4.1.js "></script>

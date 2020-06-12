@@ -1,5 +1,5 @@
 <?php
-class ManagerTip extends ManagerRecept{
+class ManagerTip {
     //
     private $vise_vrsta_tipova = array();    //vise_vrsta_jela
     private $vrsta_tipa;    //vrsta_jela
@@ -9,6 +9,16 @@ class ManagerTip extends ManagerRecept{
             $this->c = kuharica_baza::connect();
     }
     
+    public function UnosTipJela($naziv){
+        $upit = "SELECT * FROM tip WHERE naziv ='$naziv'";
+        $r = $this->c->query($upit);
+        if (!($r && $r->num_rows == 1)){
+            $sql = "INSERT INTO tip ( naziv ) VALUES ('$naziv')";
+            $this->c->query($sql);
+            if ($this->c->errno) {echo $this->c->error;} 
+        }
+        
+    }
     
     
     public function getTip(){       //getVrsta_jela

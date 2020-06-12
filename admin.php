@@ -9,8 +9,7 @@ require_once ('Controller/ManagerTip.php');
 require_once ('Model/ModelTip.php');
 require_once ('Model/Autentifikacija.php');
  
-Autentikacija::logiran();
-
+Autentikacija::isAdmin();
 
 $c = kuharica_baza::connect();
 $rm = new ManagerRecept();
@@ -25,6 +24,34 @@ if (!isset($_GET['a'])) {
 }
 
 switch ($a) {
+    
+    case 'unosTipJela': if(!$_POST){
+                            $recept = $rm->getRecept();
+                            $template = 'View/pregled';
+                            $vrsta_jela = $vjm->getVrsta_jela();
+                            $left_template = 'View/prikazVrste_jela';
+                            $vrsta_tipa = $vt->getTip();
+                            $right_template = 'View/prikazTip';
+                            }else{
+                                $naziv = $_POST['nazivTipJela'];
+                                $vt->UnosTipJela($naziv);
+                                header("Location: admin.php");
+                            }
+                            break;
+    
+    case 'unosVrstaJela': if(!$_POST){
+                            $recept = $rm->getRecept();
+                            $template = 'View/pregled';
+                            $vrsta_jela = $vjm->getVrsta_jela();
+                            $left_template = 'View/prikazVrste_jela';
+                            $vrsta_tipa = $vt->getTip();
+                            $right_template = 'View/prikazTip';
+                            }else{
+                                $naziv = $_POST['nazivVrstaJela'];
+                                $vjm->UnosVrstaJela($naziv);
+                                header("Location: admin.php");
+                            }
+                            break;
     
     case 'dodajtip':    if(!$_POST){
                             $recept = new Recept($_GET['id']);
@@ -82,9 +109,7 @@ switch ($a) {
                         $recept->setOpis($_POST['opis']);
                         $recept->setTekstRecepta($_POST['tekst_recepta']);
                         $recept->setVrstaJela($_POST['vrsta_jela']);
-                        //$recept->setTip($_POST['tip_jela']);
                         $rm->update($recept);
-                        //$rm->ReceptTip($_GET['id'], $_POST['tip_jela']);
                         header("Location: korisnik.php");
                         }
                         break;
@@ -133,6 +158,6 @@ switch ($a) {
                     $right_template = 'View/prikazTip';
                     break;
 }
-include_once 'Korisnik/View/KorisnikPocetna.php';
+include_once 'Admin/AdminPocetna.php';
 ?>
 

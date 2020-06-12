@@ -8,6 +8,18 @@ class ManagerVrsta_jela{
     public function __construct(){
             $this->c = kuharica_baza::connect();
     }
+    
+    
+    public function UnosVrstaJela($naziv){
+        $upit = "SELECT * FROM vrsta_jela WHERE naziv ='$naziv'";
+        $r = $this->c->query($upit);
+        if (!($r && $r->num_rows == 1)){
+            $sql = "INSERT INTO vrsta_jela ( naziv ) VALUES ('$naziv')";
+            $this->c->query($sql);
+            if ($this->c->errno) {echo $this->c->error;} 
+        }
+        
+    }
 
     public function getVrsta_jela(){
         
@@ -22,10 +34,9 @@ class ManagerVrsta_jela{
         return $this->vise_vrsta_jela;
     }
     
-    //ne znan ovo ispisati
+ 
     public static function IspisVrsta_jela(){
         $sql = "SELECT * FROM vrsta_jela";
-        //$r = $this->c->query($sql); //Fatal error: Uncaught Error: Using $this when not in object context 
         $c = kuharica_baza::connect();
         $r = $c->query($sql);
         $vrste = array();

@@ -13,24 +13,29 @@
 
 <body>
 <!-- NAVIGACIJA -->
-   <?php include ("$navigacija.php"); ?>
-<br>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="korisnik.php">
+        <img src="bootstrap/img/hat.png" width="30" height="30" alt="logo" loading="lazy">
+    </a>
 
-<!-- OPIS APLIKACIJE I PODACI ZA PRIJAVU KORISNIKA -->    
-<div class="container">
-    <div class="card">
-        <div class="card-header">
-            <h4>Upute i opis aplikacije</h4>
-        </div>
-        <div class="card-body">
-            Početna stranica, uz ostale elemente, mora imati opis funkcija koje aplikacija nudi kao i
-            uputstva za njeno korištenje. Zbog lakšeg pregleda navedite korisnička imena i lozinke
-            za sve tipove korisnika koji se mogu koristiti Vašom web aplikacijom.
-            <br><br>
-        </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user"></i> Menu </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+                    <p class="dropdown-info text-info  ">&nbsp User: <?php echo $_COOKIE['korisnik']; ?></p>
+                    <a class="dropdown-item" href="korisnik.php?a=unos">Dodaj novi recept</a>
+                    <a class="dropdown-item" href="korisnik.php?a=logout">Odjavi se</a>
+                </div>
+            </li>
+        </ul>
     </div>
-</div>
-<br>
+</nav>
+
 <div class="container ">
   <div class="card-body">
     <div class="row">

@@ -8,6 +8,7 @@ require_once ('Controller/ManagerTip.php');
 require_once ('Model/ModelTip.php');
 require_once ('Model/Autentifikacija.php');
 
+
 $c = kuharica_baza::connect();
 $rm = new ManagerRecept();
 $vjm = new ManagerVrsta_jela();
@@ -42,7 +43,15 @@ switch ($a) {
                         $right_template = 'prikazTip';
                         break;
     
-    case 'register':
+    case 'register':$navigacija = 'navigacijaPocetna';
+                    $upper_template='jumbotron';
+                    $recept = $rm->getRecept();
+                    $template = 'pregled';
+                    $vrsta_jela = $vjm->getVrsta_jela();
+                    $left_template = 'prikazVrste_jela';
+                    $vrsta_tipa = $vt->getTip();
+                    $right_template = 'prikazTip';
+                    
                     $korisnik = new Autentikacija();
                     $korisnik->register();
                     if(!empty($korisnik->message)){
@@ -52,19 +61,9 @@ switch ($a) {
                         $korisnik->login();
                         break;
                     }
-    
-    case 'reg':     
-                    $navigacija = 'navigacijaRegistracija';
-                    $upper_template='viewRegistracija';
-                    $recept = $rm->getRecept();
-                    $template = 'pregled';
-                    $vrsta_jela = $vjm->getVrsta_jela();
-                    $left_template = 'prikazVrste_jela';
-                    $vrsta_tipa = $vt->getTip();
-                    $right_template = 'prikazTip';
                     break;
-    
-    case 'prijava': 
+      
+    /*case 'prijava': 
                     $navigacija = 'navigacijaPrijava';
                     $upper_template='viewPrijava';
                     $recept = $rm->getRecept();
@@ -73,9 +72,9 @@ switch ($a) {
                     $left_template = 'prikazVrste_jela';
                     $vrsta_tipa = $vt->getTip();
                     $right_template = 'prikazTip';
-                    break;
+                    break;*/
     
-    case 'ulogiraj':
+    case 'login':
                     $korisnik = new Autentikacija();
                     $korisnik->login();
                     break;
@@ -105,6 +104,6 @@ switch ($a) {
                     $right_template = 'prikazTip';
                     break;
 }
-include_once './View/prikazPocetne.php';
+include_once './View/Pocetna.php';
 ?>
 
