@@ -7,26 +7,19 @@
     <u>Pogleda</u>: <?php echo $recept->getBrojPregleda(); ?>&nbsp&nbsp&nbsp&nbsp&nbsp
     <u>Autor</u>: <?php echo $recept->getImeAutora(); ?></p>   
     <hr>
+    <p>
     <?php
     if(isset($_SESSION)){
       if($recept->getAutor() == $_SESSION['userID']){
         //korisnikov clanak
-        echo '<p>';
+       
         echo '<a class="btn btn-primary" href="korisnik.php?a=uredi&id='.$recept->getId().'" role="button">Uredi</a>';
         echo '&nbsp&nbsp&nbsp';
         echo '<a class="btn btn-primary" href="korisnik.php?a=dodajtip&id='.$recept->getId().'" role="button">Dodaj tip</a>';
         echo '&nbsp&nbsp&nbsp';
         echo '<a class="btn btn-primary" href="korisnik.php?a=izbrisi&id='.$recept->getId().'" role="button">Izbrisi</a>';
         echo '&nbsp&nbsp&nbsp';
-        echo '</p>';
-    }elseif($_SESSION['vk_tip_korisnika'] == 1){
-        //admin
-        echo '<p>';
-        echo '<a class="btn btn-primary" href="korisnik.php?a=izbrisi&id='.$recept->getId().'" role="button">Izbrisi</a>';
-        echo '&nbsp&nbsp&nbsp';
-        echo '<a class="btn btn-primary" href="korisnik.php?a=dodajtip&id='.$recept->getId().'" role="button">Dodaj tip</a>';
-        echo '&nbsp&nbsp&nbsp';
-        echo '</p>';
+        
         }
     }
     
@@ -34,6 +27,6 @@
     
     
     ?>
-    <p><a class="btn btn-primary" href="<?php echo $_SERVER['SCRIPT_NAME']; ?>">Natrag...</a></p>
+    <a class="btn btn-primary" href="<?php echo $_SERVER['SCRIPT_NAME']; ?>">Natrag...</a></p>
     </div>
 </html>

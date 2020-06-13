@@ -9,7 +9,7 @@ require_once ('Controller/ManagerTip.php');
 require_once ('Model/ModelTip.php');
 require_once ('Model/Autentifikacija.php');
  
-Autentikacija::logiran();
+Autentikacija::isUser();
 
 
 $c = kuharica_baza::connect();

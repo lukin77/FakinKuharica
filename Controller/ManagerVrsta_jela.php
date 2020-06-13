@@ -10,16 +10,27 @@ class ManagerVrsta_jela{
     }
     
     
-    public function UnosVrstaJela($naziv){
+   public function UnosVrstaJela($vrsta){
+        $naziv = $vrsta->getNaziv();
         $upit = "SELECT * FROM vrsta_jela WHERE naziv ='$naziv'";
         $r = $this->c->query($upit);
-        if (!($r && $r->num_rows == 1)){
+        if ($r && $r->num_rows == 1){
+            echo 'U bazi vec postoji vrsta jela s istim nazivom';
+        }else{
             $sql = "INSERT INTO vrsta_jela ( naziv ) VALUES ('$naziv')";
             $this->c->query($sql);
             if ($this->c->errno) {echo $this->c->error;} 
         }
         
     }
+    
+    public function DelVrstaJela($vrsta_jela){
+        $id = $vrsta_jela->getId();
+        $sql = "DELETE FROM vrsta_jela WHERE id ='$id' LIMIT 1";
+        $this->c->query($sql);
+        if ($this->c->errno) {echo $this->c->error;}
+    }
+    
 
     public function getVrsta_jela(){
         

@@ -9,15 +9,29 @@ class ManagerTip {
             $this->c = kuharica_baza::connect();
     }
     
-    public function UnosTipJela($naziv){
+    public function UnosTipJela($tip){
+        $naziv = $tip->getNaziv();
         $upit = "SELECT * FROM tip WHERE naziv ='$naziv'";
         $r = $this->c->query($upit);
-        if (!($r && $r->num_rows == 1)){
+        if ($r && $r->num_rows == 1){
+            echo 'U bazi vec postoji tip jela s istim nazivom';
+        }else{
             $sql = "INSERT INTO tip ( naziv ) VALUES ('$naziv')";
             $this->c->query($sql);
             if ($this->c->errno) {echo $this->c->error;} 
         }
         
+    }
+    
+    public function DelTipJela($t){
+        $id = $t->getId();
+        $sql = "DELETE FROM tip WHERE id ='$id' LIMIT 1";
+        $this->c->query($sql);
+        if ($this->c->errno) {echo $this->c->error;}
+        
+        $sql2 = "DELETE FROM tip_recept WHERE id_tip = '$id'";
+        $this->c->query($sql2);
+        if ($this->c->errno) {echo $this->c->error;}
     }
     
     

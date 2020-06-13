@@ -42,22 +42,22 @@ class Autentikacija {
 
         $sql = "SELECT * FROM korisnik WHERE username = '$this->username' LIMIT 1";
         $r = $c->query($sql);
-        
-        if(empty($this->getIme())){
+
+        if (empty($this->getIme())) {
             array_push($this->message, ' Unesite ime! <br>');
-        }elseif(empty($this->getPrezime())){
+        } elseif (empty($this->getPrezime())) {
             array_push($this->message, ' Unesite prezime! <br>');
-        }elseif(empty($this->getUsername())){
+        } elseif (empty($this->getUsername())) {
             array_push($this->message, ' Unesite korisnicko ime! <br>');
-        }elseif ($r && $r->num_rows == 1) {
+        } elseif ($r && $r->num_rows == 1) {
             array_push($this->message, 'Postoji korisnik s istim username-om. <br>');
-        }elseif(empty($this->getPassword())){
+        } elseif (empty($this->getPassword())) {
             array_push($this->message, ' Unesite lozinku! <br>');
-        }elseif ($password == $password2) {
+        } elseif ($password == $password2) {
             $this->setPassword(md5($_POST['password']));
-        }else{
+        } else {
             array_push($this->message, 'Lozinke nisu iste. <br>');
-        }if(empty($this->message)){
+        }if (empty($this->message)) {
             $ime = $this->getIme();
             $prezime = $this->getPrezime();
             $username = $this->getUsername();
@@ -67,10 +67,8 @@ class Autentikacija {
             $c->query($sql);
             if ($c->errno) {
                 array_push($this->message, $c->error);
-            } 
+            }
         }
-        
-        
     }
 
     // PRIJAVA KORISNIKA I PREUSMJERAVANJE PREMA TIPU KORISNIKA
@@ -89,7 +87,7 @@ class Autentikacija {
             //postavi sesion
             session_start();
             $row = $r->fetch_assoc();
-            $imeIprezime = $row['ime'].' '.$row['prezime'];
+            $imeIprezime = $row['ime'] . ' ' . $row['prezime'];
             //setcookie('user', $username, time() + (86400 * 30));
             setcookie('korisnik', $imeIprezime, time() + (86400 * 30));
             $_SESSION['userID'] = $row['id'];
@@ -120,23 +118,27 @@ class Autentikacija {
         header("Location: index.php");
     }
 
-    public static function logiran() {
-        if (!isset($_SESSION['userID'])) {
+   
+
+    public static function isUser() {
+        if (isset($_SESSION['vk_tip_korisnika'])) {
+            if ($_SESSION['vk_tip_korisnika'] == 1) {
+                header("Location: admin.php");
+            }
+        } else {
             header("Location: index.php");
         }
     }
-    
-public static function isAdmin(){
-    if(isset($_SESSION)){
-        if($_SESSION['vk_tip_korisnika'] != 1){
-            if($_SESSION['vk_tip_korisnika'] !=2){
-                header("Location: index.php");
-            }else{
+
+    public static function isAdmin() {
+        if (isset($_SESSION['vk_tip_korisnika'])) {
+            if ($_SESSION['vk_tip_korisnika'] == 2) {
                 header("Location: korisnik.php");
             }
+        } else {
+            header("Location: index.php");
         }
     }
-}
 
     public function getId() {
         return $this->id;

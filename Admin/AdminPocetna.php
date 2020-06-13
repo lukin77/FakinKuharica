@@ -28,8 +28,9 @@
                             <i class="fas fa-user"></i> Menu </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
                             <p class="dropdown-info text-info  ">&nbsp User: <?php echo $_COOKIE['korisnik']; ?></p>
-                            <a class="dropdown-item" href="korisnik.php?a=unos">Dodaj novi recept</a>
-                            <a class="dropdown-item" href="korisnik.php?a=logout">Odjavi se</a>
+                            <a class="dropdown-item" href="admin.php?a=unos">Dodaj novi recept</a>
+                            <a class="dropdown-item" href="admin.php?a=auredi">Uredi tipove i vrste jela</a>
+                            <a class="dropdown-item" href="admin.php?a=logout">Odjavi se</a>
                         </div>
                     </li>
                 </ul>
@@ -43,20 +44,6 @@
                     <!-- VRSTE JELA (Predjelo, glavno jelo, salata, desert) -->
                     <div class="col-2 text-center bg-light"> <br> <h4> VRSTE JELA: </h4>
                         <?php include("$left_template.php") ?>
-                        <div class="btn-group dropright">
-                            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</button>
-                            <div class="dropdown-menu">
-                                <form method="POST" action="admin.php?a=unosVrstaJela">
-                                    <div class="form-group dropdown-item">
-                                        <label for="exampleInputUsername"><h4 class="text-dark">Naziv vrste jela</h4></label>
-                                        <input type="text" class="form-control" id="username" name="nazivVrstaJela">
-                                    </div>
-                                    <div class="text-center dropdown-item">
-                                        <button type="submit" class="btn btn-outline-primary">Dodaj</button>
-                                    </div>               
-                                </form>
-                            </div>
-                        </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -69,20 +56,6 @@
                     <!-- TIPOVI JELA (slano, slatko,..) -->
                     <div class="col-2 text-center bg-light"> <br> <h4> TIPOVI JELA: </h4>
                         <?php include ("$right_template.php") ?>
-                        <div class="btn-group dropright">
-                            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</button>
-                            <div class="dropdown-menu">
-                                <form method="POST" action="admin.php?a=unosTipJela">
-                                    <div class="form-group dropdown-item">
-                                        <label for="exampleInputUsername"><h4 class="text-dark">Naziv tipa jela</h4></label>
-                                        <input type="text" class="form-control" id="username" name="nazivTipJela">
-                                    </div>
-                                    <div class="text-center dropdown-item">
-                                        <button type="submit" class="btn btn-outline-primary">Dodaj</button>
-                                    </div>               
-                                </form>
-                            </div>
-                        </div>
                     </div>
                     </div>
                 </div>
