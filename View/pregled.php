@@ -1,6 +1,6 @@
 <?php
 if(count($recept)== 0){
-    echo '<h3 class="text-center">Jos nema takvog recepta</h3>';
+    echo '<h3 class="text-center">Jos nemamo takvog recepta :)</h3>';
 }
 foreach ($recept as $r) {
     echo '<h3>'.$r->getNaslov().'</h3>';
