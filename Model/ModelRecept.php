@@ -9,6 +9,7 @@ class Recept {
     private $sastojci;
     private $opis;
     private $tekst_recepta;
+    private $br_ocjena;
     private $ocjena;
     private $br_pregleda;
     private $autor;
@@ -33,13 +34,20 @@ class Recept {
             $this->sastojci=$red['sastojci'];
             $this->opis=$red['opis'];
             $this->tekst_recepta=$red['tekst_recepta'];
+            $this->br_ocjena=$red['br_ocjena'];
             $this->ocjena=$red['ocjena'];
             $this->br_pregleda=$red['br_pregleda'];
         }
         
     }
-    
-    public function povecajBrojPregleda(){
+    public function dodajOcjena($ocjena){
+        $c = kuharica_baza::connect();
+        $sql = "UPDATE recept SET ocjena= ocjena + $ocjena, br_ocjena=br_ocjena + 1 WHERE id = $this->id";
+        $c->query($sql);
+        
+    }
+
+        public function povecajBrojPregleda(){
         $c = kuharica_baza::connect();
         $sql = "UPDATE recept SET br_pregleda=br_pregleda+1 WHERE id=".$this->id;
         $c->query($sql);
@@ -65,6 +73,7 @@ class Recept {
     public function getOpis(){return $this->opis;}
     public function getTekstRecepta(){return $this->tekst_recepta;}
     public function getOcjena(){return $this->ocjena;}
+    public function getBrOcjena(){return $this->br_ocjena;}
     public function getBrojPregleda(){return $this->br_pregleda;}
     public function getTip(){return $this->tip;}
 
@@ -77,6 +86,7 @@ class Recept {
     public function setOpis($opis){$this->opis=$opis;}
     public function setTekstRecepta($tekst_recepta){$this->tekst_recepta=$tekst_recepta;}
     public function setOcjena($ocjena){$this->ocjena=$ocjena;}
+    public function setBrOcjena($br_ocjena){$this->br_ocjena=$br_ocjena;}
     public function setBrojPregleda($br_pregleda){$this->br_pregleda=$br_pregleda;}
     public function setTip($tip){$this->tip=$tip;}
 

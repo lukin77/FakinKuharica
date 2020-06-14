@@ -26,6 +26,21 @@ if (!isset($_GET['a'])) {
 
 switch ($a) {
     
+    case 'my':
+                        $recept = $rm->getRecept('my');
+                        $template = 'View/pregled';
+                        $vrsta_jela = $vjm->getVrsta_jela();
+                        $left_template = 'View/prikazVrste_jela';
+                        $vrsta_tipa = $vt->getTip();
+                        $right_template = 'View/prikazTip';
+                        break;
+    
+    case 'ocjeni':      $recept = new Recept($_GET['id']);
+                        $ocjena = $_GET['ocjena'];
+                        $recept->dodajOcjena($ocjena);
+                        header('Location: korisnik.php?a=recept&id='.$_GET['id']);
+                        break;
+    
     case 'dodajtip':    if(!$_POST){
                             $recept = new Recept($_GET['id']);
                             $template = 'tip';

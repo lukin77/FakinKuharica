@@ -62,17 +62,7 @@ switch ($a) {
                         break;
                     }
                     break;
-      
-    /*case 'prijava': 
-                    $navigacija = 'navigacijaPrijava';
-                    $upper_template='viewPrijava';
-                    $recept = $rm->getRecept();
-                    $template = 'pregled';
-                    $vrsta_jela = $vjm->getVrsta_jela();
-                    $left_template = 'prikazVrste_jela';
-                    $vrsta_tipa = $vt->getTip();
-                    $right_template = 'prikazTip';
-                    break;*/
+
     
     case 'login':
                     $korisnik = new Autentikacija();
@@ -96,7 +86,7 @@ switch ($a) {
     default :       
                     $navigacija = 'navigacijaPocetna';
                     $upper_template = 'jumbotron';
-                    $recept = $rm->getRecept('svi');
+                    $recept = $rm->getRecept();
                     $template = 'pregled';
                     $vrsta_jela = $vjm->getVrsta_jela();
                     $left_template = 'prikazVrste_jela';

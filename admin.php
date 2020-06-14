@@ -24,6 +24,12 @@ if (!isset($_GET['a'])) {
 }
 
 switch ($a) {
+    case 'ocjeni':      $recept = new Recept($_GET['id']);
+                        $ocjena = $_GET['ocjena'];
+                        $recept->dodajOcjena($ocjena);
+                        header('Location: admin.php?a=recept&id='.$_GET['id']);
+                        break;
+                    
     case 'unosVrstaJela': if(isset($_POST['nazivVrstaJela']) && !empty($_POST['nazivVrstaJela'])){
                             $novaVrsta = new Vrsta_jela();
                             $novaVrsta->setNaziv($_POST['nazivVrstaJela']);

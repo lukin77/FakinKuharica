@@ -36,32 +36,48 @@
                 </ul>
             </div>
         </nav>
-        <br>
-        <br>
-        <div class="container ">
-            <div class="card-body">
-                <div class="row">
-                    <!-- VRSTE JELA (Predjelo, glavno jelo, salata, desert) -->
-                    <div class="col-2 text-center bg-light"> <br> <h4> VRSTE JELA: </h4>
-                        <?php include("$left_template.php") ?>
+        &nbsp;
+<div class="container">
+            <div class="row">
+                <div class="container col-2">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <h5> VRSTE JELA: </h5>
+                        </div>
+                        <div class="card-body">
+                            <?php include("$left_template.php") ?>
+                        </div>
                     </div>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-
-                    <!-- RECEPTI -->
-                    <div class="col-8 col-md col-lg col-xl bg-white">
-                        <?php include ("$template.php") ?>
+                </div>
+                <div class="container col-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs">
+                                <li class="active">
+                                    <a class="nav-link" href="admin.php?order=r.br_pregleda">Pogledi</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="admin.php?order=r.datum_objavljivanja">Datum</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <?php include ("$template.php") ?>
+                        </div>
                     </div>
-                    
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <!-- TIPOVI JELA (slano, slatko,..) -->
-                    <div class="col-2 text-center bg-light"> <br> <h4> TIPOVI JELA: </h4>
-                        <?php include ("$right_template.php") ?>
-                    </div>
+                </div>
+                <div class="container col-2">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <h5> TIP JELA: </h5>
+                        </div>
+                        <div class="card-body">
+                            <?php include("$right_template.php") ?>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
+        </div>
 
         <script src="bootstrap/js/jquery-3.4.1.min.js "></script>
         <script src="bootstrap/js/popper.min.js "></script>
