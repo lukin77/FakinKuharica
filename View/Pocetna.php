@@ -25,10 +25,31 @@
                     <h4>Upute i opis aplikacije</h4>
                 </div>
                 <div class="card-body">
-                    Početna stranica, uz ostale elemente, mora imati opis funkcija koje aplikacija nudi kao i
-                    uputstva za njeno korištenje. Zbog lakšeg pregleda navedite korisnička imena i lozinke
-                    za sve tipove korisnika koji se mogu koristiti Vašom web aplikacijom.
-                    <br><br>
+                    <p class="text-dark">
+                        Web aplikaciju Kuharicu tj. objavljene recepte mogu pregledavati svi korisnici, bili oni registrirani ili ne. Početna stranica prikazuje sve recepte koje je
+                        moguće sortirati prema datumu objavljivanja ili broju pogleda. Isto tako, korisnik recepte može pretraživati po njihovoj vrsti (predjelo, glavno jelo, itd.) te 
+                        po njihovom tipu (slano, slatko, itd.).
+                        <br><br>
+                        Ono što je još moguće na Početnoj je prikazati svaki recept zasebno; na naslovnici je prikazan samo naslov recepta tj. naziv jela te njegov kratak opis kojemu je
+                        cilj privući Korisnike, a otvaranjem recepta klikom na 'Više' Korisniku su vidljivi sastojci, proces pripreme jela te kada je objavljen, tko ga je i kada objavio uz 
+                        naravno ocjenu koju može dodijeliti samo ako je registriran.
+                        <br><br>
+                        Korisnik se može registrirati putem padajućeg linka u navigaciji, a istim se putem linkom pored može i prijaviti. Prijavljenom Korisniku nude se nove mogućnosti:
+                        navigacijska traka se mijenja tako što se u gornjem desnom kutu nalazi padajući izbornik 'Menu' gdje je navedeno ime i prezime prijavljenog Korisnika kao i linkovi
+                        koji vode na dodavanje novog recepta, pregled svih recepata koje je korisnik objavio te link na odjavu korisnika.
+                        <br><br>
+                        U obrascu za dodavanje novog recepta Korisnik upisuje naziv recepta, njegove sastojke, opis koji će se jedini prikazati uz naslov na početnoj stranici, tekst recepta tj.
+                        proces izrade jela te odabire vrstu jela. Isto tako, pri unosu mu se napominje da ako želi, kasnije receptu može dodati jedan ili više tipova jela kako bi Korisnicima bilo
+                        lakše pretraživati recepte.
+                        <br>
+                        Prijavljen Korisnik također može ući u pregled bilo kojeg recepta te ga ocijeniti, a ako uđe u pregled nekog svog recepta, on ga može urediti ili obrisati te mu dodati tip 
+                        (je li to slano jelo, slatko ili više njih odjednom).
+                        <br><br>
+                        Ukoliko se na sjedište prijavi Administrator, njegove su mogućnosti jednake kao i korisnikove, a ono što on dodatno može je urediti tipove i vrste jela tj. obrisati 
+                        već postojeće ili dodati nove (npr. hladno predjelo, slatko-kiselo jelo) te uz to može uređivati i brisati sve tuđe recepte.
+                        <br><br>
+                    <h5>Podaci za prijavu Korisnika i Administratora:</h5>
+                    </p>
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -71,14 +92,7 @@
                 <div class="container col-8">
                     <div class="card">
                         <div class="card-header">
-                            <ul class="nav nav-tabs card-header-tabs">
-                                <li class="active">
-                                    <a class="nav-link" href="index.php?order=r.br_pregleda">Pogledi</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="index.php?order=r.datum_objavljivanja">Datum</a>
-                                </li>
-                            </ul>
+                           <?php include ("$header.php"); ?>
                         </div>
                         <div class="card-body">
                             <?php include ("$template.php") ?>

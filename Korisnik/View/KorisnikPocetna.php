@@ -52,14 +52,7 @@
                 <div class="container col-8">
                     <div class="card">
                         <div class="card-header">
-                            <ul class="nav nav-tabs card-header-tabs">
-                                <li class="active">
-                                    <a class="nav-link" href="korisnik.php?order=r.br_pregleda">Pogledi</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="korisnik.php?order=r.datum_objavljivanja">Datum</a>
-                                </li>
-                            </ul>
+                            <?php include ("$header.php"); ?>
                         </div>
                         <div class="card-body">
                             <?php include ("$template.php") ?>

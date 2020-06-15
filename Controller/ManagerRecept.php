@@ -22,14 +22,14 @@ class ManagerRecept {
                                         FROM recept r
                                         LEFT JOIN vrsta_jela v ON (r.vk_vrsta_jela = v.id) 
                                         LEFT JOIN korisnik k ON (r.vk_autora = k.id)
-                                        WHERE r.vk_autora = $vk";
+                                        WHERE r.vk_autora = $vk ";
                 break;
             
             
             case 'svi': $sql = "SELECT r.id, r.naslov, r.sastojci, r.opis, r.tekst_recepta, r.vk_vrsta_jela, r.datum_objavljivanja, r.br_pregleda, r.ocjena, r.br_ocjena, k.id AS kid, k.ime, k.prezime, v.naziv
                                         FROM recept r
                                         LEFT JOIN vrsta_jela v ON (r.vk_vrsta_jela = v.id) 
-                                        LEFT JOIN korisnik k ON (r.vk_autora = k.id)";
+                                        LEFT JOIN korisnik k ON (r.vk_autora = k.id) ";
                 break;
 
 
@@ -38,7 +38,7 @@ class ManagerRecept {
                                         FROM recept r
                                         LEFT JOIN vrsta_jela v ON (r.vk_vrsta_jela = v.id) 
                                         LEFT JOIN korisnik k ON (r.vk_autora = k.id) 
-                                        WHERE v.id = $id";
+                                        WHERE v.id = $id ";
                 break;
 
             case 'tip': $id = $_GET['id'];
@@ -47,7 +47,7 @@ class ManagerRecept {
                                 LEFT JOIN tip_recepta tr ON (r.id = tr.id_recept)
                                 LEFT JOIN tip t ON (t.id = tr.id_tip)
                                 LEFT JOIN korisnik k ON (r.vk_autora = k.id)
-                                WHERE t.id = $id";
+                                WHERE t.id = $id ";
                 break;
         }
         

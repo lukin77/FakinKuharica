@@ -10,23 +10,23 @@
 <hr>
 <p>
     <?php
-    echo '<a class="btn btn-primary" href="admin.php?a=uredi&id=' . $recept->getId() . '" role="button">Uredi</a>';
+    echo '<a class="btn btn-secondary" href="admin.php?a=uredi&id=' . $recept->getId() . '" role="button">Uredi</a>';
     echo '&nbsp&nbsp&nbsp';
-    echo '<a class="btn btn-primary" href="admin.php?a=dodajtip&id=' . $recept->getId() . '" role="button">Dodaj tip</a>';
+    echo '<a class="btn btn-secondary" href="admin.php?a=dodajtip&id=' . $recept->getId() . '" role="button">Dodaj tip</a>';
     echo '&nbsp&nbsp&nbsp';
-    echo '<a class="btn btn-primary" href="admin.php?a=izbrisi&id=' . $recept->getId() . '" role="button">Izbrisi</a>';
+    echo '<a class="btn btn-secondary" href="admin.php?a=izbrisi&id=' . $recept->getId() . '" role="button">Izbrisi</a>';
     echo '&nbsp&nbsp&nbsp';
     echo '<div class="btn-group dropup">
-        <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ocjeni</button>
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ocjeni</button>
         <div class="dropdown-menu">
-        <a class="btn btn-outline-primary" href="admin.php?a=ocjeni&ocjena=1&id='.$recept->getId().'">1</a>
-        <a class="btn btn-outline-primary" href="admin.php?a=ocjeni&ocjena=2&id='.$recept->getId().'">2</a>
-        <a class="btn btn-outline-primary" href="admin.php?a=ocjeni&ocjena=3&id='.$recept->getId().'">3</a>
-        <a class="btn btn-outline-primary" href="admin.php?a=ocjeni&ocjena=4&id='.$recept->getId().'">4</a>
-        <a class="btn btn-outline-primary" href="admin.php?a=ocjeni&ocjena=5&id='.$recept->getId().'">5</a>
+        <a class="btn btn-outline-secondary" href="admin.php?a=ocjeni&ocjena=1&id='.$recept->getId().'">1</a>
+        <a class="btn btn-outline-secondary" href="admin.php?a=ocjeni&ocjena=2&id='.$recept->getId().'">2</a>
+        <a class="btn btn-outline-secondary" href="admin.php?a=ocjeni&ocjena=3&id='.$recept->getId().'">3</a>
+        <a class="btn btn-outline-secondary" href="admin.php?a=ocjeni&ocjena=4&id='.$recept->getId().'">4</a>
+        <a class="btn btn-outline-secondary" href="admin.php?a=ocjeni&ocjena=5&id='.$recept->getId().'">5</a>
         </div>
         </div>';
     ?>
-    <a class="btn btn-primary" href="<?php echo $_SERVER['SCRIPT_NAME']; ?>">Natrag...</a></p>
+    <a class="btn btn-secondary" href="<?php echo $_SERVER['SCRIPT_NAME']; ?>">Natrag...</a></p>
 </div>
 </html>

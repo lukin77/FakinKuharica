@@ -31,6 +31,7 @@ switch ($a) {
                         $left_template = 'prikazVrste_jela';
                         $vrsta_tipa = $vt->getTip();
                         $right_template = 'prikazTip';
+                        $header = 'sortOdabrani';
                         break; 
     
     case 'vrsta_jela':  $navigacija = 'navigacijaPocetna';
@@ -41,6 +42,7 @@ switch ($a) {
                         $left_template = 'prikazVrste_jela';
                         $vrsta_tipa = $vt->getTip();
                         $right_template = 'prikazTip';
+                        $header = 'sortOdabrani';
                         break;
     
     case 'register':$navigacija = 'navigacijaPocetna';
@@ -51,6 +53,7 @@ switch ($a) {
                     $left_template = 'prikazVrste_jela';
                     $vrsta_tipa = $vt->getTip();
                     $right_template = 'prikazTip';
+                    $header = 'sortSvi';
                     
                     $korisnik = new Autentikacija();
                     $korisnik->register();
@@ -81,6 +84,7 @@ switch ($a) {
                     $left_template = 'prikazVrste_jela';
                     $vrsta_tipa = $vt->getTip();
                     $right_template = 'prikazTip';
+                    $header = 'sortSvi';
                     break;
 
     default :       
@@ -92,6 +96,7 @@ switch ($a) {
                     $left_template = 'prikazVrste_jela';
                     $vrsta_tipa = $vt->getTip();
                     $right_template = 'prikazTip';
+                    $header = 'sortSvi';
                     break;
 }
 include_once './View/Pocetna.php';

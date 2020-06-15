@@ -29,6 +29,7 @@
                         <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
                             <p class="dropdown-info text-info  ">&nbsp User: <?php echo $_COOKIE['korisnik']; ?></p>
                             <a class="dropdown-item" href="admin.php?a=unos">Dodaj novi recept</a>
+                            <a class="dropdown-item" href="admin.php?a=my">Moji recepti</a>
                             <a class="dropdown-item" href="admin.php?a=auredi">Uredi tipove i vrste jela</a>
                             <a class="dropdown-item" href="admin.php?a=logout">Odjavi se</a>
                         </div>
@@ -52,14 +53,7 @@
                 <div class="container col-8">
                     <div class="card">
                         <div class="card-header">
-                            <ul class="nav nav-tabs card-header-tabs">
-                                <li class="active">
-                                    <a class="nav-link" href="admin.php?order=r.br_pregleda">Pogledi</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="admin.php?order=r.datum_objavljivanja">Datum</a>
-                                </li>
-                            </ul>
+                            <?php include ("$header.php"); ?>
                         </div>
                         <div class="card-body">
                             <?php include ("$template.php") ?>

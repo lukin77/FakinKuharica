@@ -17,12 +17,20 @@
     </div>
     <fieldset class="form-group">
         <div class="row">
-            <div class="col-sm-10">
+            <div class="col-sm">
                 <div class="form-group">
                     <h3>Vrsta jela:</h3>
                     <?php ManagerVrsta_jela::IspisVrsta_jela()  ?>
                     <!--<h3>Tip jela:</h3>-->
                     <?php //ManagerTip::IspisTip() ?> 
+                </div>
+            </div>
+            <div class="col">
+                <div class="alert alert-secondary" role="alert">
+                    <h4 class="alert-heading">Napomena</h4>
+                    <p>Nakon unosa recepta svome jelu možete dodati oznake okusa kako bi ga bilo još lakše pronaći!</p>
+                    <hr>
+                    <p class="mb-0">Vrlo je jednostavno! Klikom na 'Dodaj tip' kod uređivanja recepta. :)</p>
                 </div>
             </div>
     </fieldset>

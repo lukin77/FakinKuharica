@@ -33,6 +33,7 @@ switch ($a) {
                         $left_template = 'View/prikazVrste_jela';
                         $vrsta_tipa = $vt->getTip();
                         $right_template = 'View/prikazTip';
+                        $header = 'View/sortOdabrani';
                         break;
     
     case 'ocjeni':      $recept = new Recept($_GET['id']);
@@ -48,6 +49,7 @@ switch ($a) {
                             $left_template = 'View/prikazVrste_jela';
                             $vrsta_tipa = $vt->getTip();
                             $right_template = 'View/prikazTip';
+                            $header = 'View/sortSvi';
                         }else{
                             $rm->ReceptTip($_GET['id'], $_POST['tip_jela']);
                             header("Location: korisnik.php");
@@ -55,13 +57,14 @@ switch ($a) {
                         break;
     
     
-    case 'tip':         
+    case 'tip':
                         $recept = $rm->getRecept('tip');
                         $template = 'View/pregled';
                         $vrsta_jela = $vjm->getVrsta_jela();
                         $left_template = 'View/prikazVrste_jela';
                         $vrsta_tipa = $vt->getTip();
                         $right_template = 'View/prikazTip';
+                        $header = 'View/sortOdabrani';
                         break; 
       
     case 'vrsta_jela':
@@ -71,6 +74,7 @@ switch ($a) {
                         $left_template = 'View/prikazVrste_jela';
                         $vrsta_tipa = $vt->getTip();
                         $right_template = 'View/prikazTip';
+                        $header = 'View/sortOdabrani';
                         break;  
                     
     
@@ -89,6 +93,7 @@ switch ($a) {
                         $left_template = 'View/prikazVrste_jela';
                         $vrsta_tipa = $vt->getTip();
                         $right_template = 'View/prikazTip';
+                        $header = 'View/sortSvi';
                     }else{
                         $recept->setId($_GET['id']);
                         $recept->setNaslov($_POST['naslov']);
@@ -110,6 +115,7 @@ switch ($a) {
                     $left_template = 'View/prikazVrste_jela';
                     $vrsta_tipa = $vt->getTip();
                     $right_template = 'View/prikazTip';
+                    $header = 'View/sortSvi';
                     break;
                     
     case 'create':  
@@ -137,6 +143,7 @@ switch ($a) {
                     $left_template = 'View/prikazVrste_jela';
                     $vrsta_tipa = $vt->getTip();
                     $right_template = 'View/prikazTip';
+                    $header = 'View/sortSvi';
                     break;
 
     default :
@@ -146,6 +153,7 @@ switch ($a) {
                     $left_template = 'View/prikazVrste_jela';
                     $vrsta_tipa = $vt->getTip();
                     $right_template = 'View/prikazTip';
+                    $header = 'View/sortSvi';
                     break;
 }
 include_once 'Korisnik/View/KorisnikPocetna.php';

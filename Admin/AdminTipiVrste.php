@@ -3,7 +3,7 @@
 foreach ($vrsta_tipa as $v) {    //vrsta_jela
     echo '<div clas="text-primary">' . $v->getNaziv();
     echo '&nbsp&nbsp&nbsp';
-    echo '<a class="btn btn-outline-primary" href="admin.php?a=izbrisiTIP&id=' . $v->getId() . '" role="button">Izbrisi</a>';
+    echo '<a class="btn btn-outline-secondary" href="admin.php?a=izbrisiTIP&id=' . $v->getId() . '" role="button">Izbrisi</a>';
     echo '</div>';
     echo '<br>';
 }
@@ -28,7 +28,7 @@ foreach ($vrsta_tipa as $v) {    //vrsta_jela
 foreach ($vrsta_jela as $v) {
     echo '<div clas="text-primary">' . $v->getNaziv();
     echo '&nbsp&nbsp&nbsp';
-    echo '<a class="btn btn-outline-primary" href="admin.php?a=izbrisiVRSTA&id=' . $v->getId() . '" role="button">Izbrisi</a>';
+    echo '<a class="btn btn-outline-secondary" href="admin.php?a=izbrisiVRSTA&id=' . $v->getId() . '" role="button">Izbrisi</a>';
     echo '</div>';
     echo '<br>';
 }
@@ -42,7 +42,7 @@ foreach ($vrsta_jela as $v) {
                 <input type="text" class="form-control" id="username" name="nazivVrstaJela">
             </div>
             <div class="text-center dropdown-item">
-                <button type="submit" class="btn btn-outline-primary">Dodaj</button>
+                <button type="submit" class="btn btn-outline-secondary">Dodaj</button>
             </div>
         </form>
     </div>
