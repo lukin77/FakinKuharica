@@ -85,7 +85,7 @@ switch ($a) {
     
     case 'dodajtip':    if(!$_POST){
                             $recept = new Recept($_GET['id']);
-                            $template = 'tip';
+                            $template = 'Korisnik/View/tip';
                             $vrsta_jela = $vjm->getVrsta_jela();
                             $left_template = 'View/prikazVrste_jela';
                             $vrsta_tipa = $vt->getTip();
