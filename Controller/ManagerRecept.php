@@ -2,9 +2,9 @@
 
 class ManagerRecept {
 
-    //
+    
     private $vise_vrsta_recepata = array();
-    //ako ce ostat ono da admin moze dodat (sto si ostavio za vrstu jela) (?)
+   
     private $vrsta_recepata;
     private $c;
 

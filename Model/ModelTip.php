@@ -6,7 +6,6 @@ class Tip {  // Vrsta_jela
     private $naziv;
     
     
-    // UZIMANJE VRIJEDNOSTI ATRIBUTA IZ BAZE
     public function __construct($id=null){
          if($id){
             $c = kuharica_baza::connect();

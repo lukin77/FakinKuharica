@@ -10,7 +10,7 @@ class Autentikacija {
     private $vk_tip;
     public $message = array();
 
-    // PRISTUP VRIJEDNOSTIMA ATRIBUTA
+
     public function __construct($id = false) {
 
         if ($id) {
@@ -18,7 +18,7 @@ class Autentikacija {
             $sql = "SELECT * FROM korisnici WHERE id = $id LIMIT 1";
             $r = $c->query($sql);
             $row = $r->fetch_assoc();
-            // POSTAVI VRIJEDNOSTI ATRIBUTA
+
             $this->id = $row['id'];
             $this->ime = $row['ime'];
             $this->prezime = $row['prezime'];
@@ -71,24 +71,21 @@ class Autentikacija {
         }
     }
 
-    // PRIJAVA KORISNIKA I PREUSMJERAVANJE PREMA TIPU KORISNIKA
     public function login() {
 
         $c = kuharica_baza::connect();
-        // PRISTUPNI PODACI
+
         $username = $_POST['username'];
         $password = md5($_POST['password']);
-        //$password = $_POST['password'];
-        // PRIPREMI I IZVRŠI UPIT
+
         $upit = "SELECT * FROM korisnik WHERE username='$username' AND password = '$password'";
         $r = $c->query($upit);
-        // JE LI PRONAĐEN?
+
         if ($r && $r->num_rows == 1) {
-            //postavi sesion
+
             session_start();
             $row = $r->fetch_assoc();
             $imeIprezime = $row['ime'] . ' ' . $row['prezime'];
-            //setcookie('user', $username, time() + (86400 * 30));
             setcookie('korisnik', $imeIprezime, time() + (86400 * 30));
             $_SESSION['userID'] = $row['id'];
             $_SESSION['vk_tip_korisnika'] = $row['vk_tip_korisnika'];
@@ -111,9 +108,9 @@ class Autentikacija {
     public static function logout() {
         session_start();
         unset($_SESSION['userID']);
-        //mislin da ne ide ovako ovaj cookie
-        unset($_COOKIE['login']);
+        unset($_COOKIE['korisnik']);
         unset($_SESSION['vk_tip_korisnika']);
+        setcookie('korisnik', $imeIprezime, time() + (-86400 * 30));
         session_destroy();
         header("Location: index.php");
     }
